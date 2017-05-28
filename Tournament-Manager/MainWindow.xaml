@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Tournament_Manager"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+    <DockPanel>
+        <Frame Name="mainFrame" Source="Page1.xaml"></Frame>
+    </DockPanel>
 </Window>
