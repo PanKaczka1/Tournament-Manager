@@ -23,6 +23,10 @@ namespace Tournament_Manager
         {
             get { return cup; }
         }
+        public List<Team> Teams
+        {
+            get { return teams; }
+        }
         public Contest(Disc discipline)
         {
             teams = new List<Team>();
