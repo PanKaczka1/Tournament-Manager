@@ -54,6 +54,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DodgeballMatch.cs" />
+    <Compile Include="Referee.cs" />
+    <Compile Include="RopeDraggingMatch.cs" />
+    <Compile Include="Team.cs" />
+    <Compile Include="VolleyballMatch.cs" />
     <Page Include="loadTournament.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -83,6 +88,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Match.cs" />
     <Compile Include="newTournament.xaml.cs">
       <DependentUpon>newTournament.xaml</DependentUpon>
     </Compile>
