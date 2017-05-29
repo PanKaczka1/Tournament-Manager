@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tournament_Manager
 {
-    class Referee
+    public class Referee
     {
         private String name;
         private String surname;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tournament_Manager
 {
-    class VolleyballMatch : Match
+    public class VolleyballMatch : Match
     {
         public VolleyballMatch (Team t1, Team t2, Referee r1, Referee r2, Referee r3)
         {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tournament_Manager
 {
-    class League : Stage
+    public class League : Stage
     {
         public override void printScores()
         {

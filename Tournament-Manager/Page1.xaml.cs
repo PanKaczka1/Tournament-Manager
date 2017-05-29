@@ -33,6 +33,7 @@ namespace Tournament_Manager
 
         private void loadTournamentBtn_Click(object sender, RoutedEventArgs e)
         {
+            Tournament tournament = new Tournament();
             loadTournament lt = new loadTournament();
             NavigationService.Navigate(lt);
         }

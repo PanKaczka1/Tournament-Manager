@@ -6,11 +6,32 @@ using System.Threading.Tasks;
 
 namespace Tournament_Manager
 {
-    class Tournament
+    public enum Disc { Volleyball, RopeDragging, Dodgeball };
+    public class Tournament
     {
-        private Contest contestVolleyball = new Contest;
-        private Contest contestRopeDragging = new Contest;
-        private Contest contestDogeball = new Contest;
+        private Contest contestVolleyball;
+        private Contest contestRopeDragging;
+        private Contest contestDodgeball;
+        public Tournament()
+        {
+            contestVolleyball = new Contest(Disc.Volleyball);
+            contestRopeDragging = new Contest(Disc.RopeDragging);
+            contestDodgeball = new Contest(Disc.Dodgeball);
+
+        }
+
+        public Contest ContestVolleyball
+        {
+            get { return contestVolleyball; }
+        }
+        public Contest ContestRopeDragging
+        {
+            get { return contestRopeDragging; }
+        }
+        public Contest ContestDodgeball
+        {
+            get { return contestDodgeball; }
+        }
         public void saveState(string filename)
         {
 

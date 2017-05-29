@@ -54,10 +54,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Contest.cs" />
+    <Compile Include="Cup.cs" />
     <Compile Include="DodgeballMatch.cs" />
+    <Compile Include="League.cs" />
     <Compile Include="Referee.cs" />
     <Compile Include="RopeDraggingMatch.cs" />
+    <Compile Include="Stage.cs" />
     <Compile Include="Team.cs" />
+    <Compile Include="Tournament.cs" />
     <Compile Include="VolleyballMatch.cs" />
     <Page Include="loadTournament.xaml">
       <SubType>Designer</SubType>
@@ -118,7 +123,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
