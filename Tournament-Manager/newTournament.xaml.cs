@@ -20,9 +20,20 @@ namespace Tournament_Manager
     /// </summary>
     public partial class newTournament : Page
     {
+       
         public newTournament()
         {
             InitializeComponent();
+        }
+
+        private void volleyballAddTeamBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Team t = new Team(volleyballTeamsTextBox.Text);
+        }
+
+        private void volleyballRemoveTeamBtn_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

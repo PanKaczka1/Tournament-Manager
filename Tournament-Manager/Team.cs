@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tournament_Manager
 {
-    class Team
+    public class Team
     {
         private String name;
         private uint points;

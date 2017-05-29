@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tournament_Manager
 {
-    class RopeDraggingMatch : Match
+    public class RopeDraggingMatch : Match
     {
         public RopeDraggingMatch(Team t1, Team t2, Referee referee)
         {

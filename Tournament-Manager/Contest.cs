@@ -7,7 +7,7 @@ using System.Threading.Tasks;
     
 namespace Tournament_Manager
 {
-    class Contest
+    public class Contest
     {
         protected List<Team> teams;
         protected List<Referee> referees;
@@ -18,6 +18,10 @@ namespace Tournament_Manager
         {
             get { return discipline; }
             set { discipline = value; }
+        }
+        public Cup Cup
+        {
+            get { return cup; }
         }
         public Contest(Disc discipline)
         {

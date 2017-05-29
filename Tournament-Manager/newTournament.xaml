@@ -38,8 +38,8 @@
                                         </Style>
                                     </StackPanel.Resources>
                                     <TextBox Name="volleyballTeamsTextBox" AcceptsReturn="True" TextWrapping="NoWrap" Height="20"></TextBox>
-                                    <Button>Dodaj drużynę</Button>
-                                    <Button>Usuń drużynę</Button>
+                                    <Button Name="volleyballAddTeamBtn" Click="volleyballAddTeamBtn_Click">Dodaj drużynę</Button>
+                                    <Button Name="volleyballRemoveTeamBtn" Click="volleyballRemoveTeamBtn_Click">Usuń drużynę</Button>
                                 </StackPanel>
                                 <ListBox Name="volleyballTeamsLB" HorizontalContentAlignment="Stretch" SelectionMode="Extended">
                                     <ListBox.ItemTemplate>

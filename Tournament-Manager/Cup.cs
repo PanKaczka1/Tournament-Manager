@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tournament_Manager
 {
-    class Cup : Stage
+    public class Cup : Stage
     {
         private Match semifinal1;
         private Match semifinal2;

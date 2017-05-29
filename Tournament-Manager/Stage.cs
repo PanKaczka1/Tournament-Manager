@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Tournament_Manager
 {
-    class Stage
+    public class Stage
     {
         protected List<Match> matches;
         public Stage()
