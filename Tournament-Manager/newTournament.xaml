@@ -26,7 +26,7 @@
                     </Grid.RowDefinitions>
                     <Label Content="Ilość drużyn:" Grid.Row="0" Grid.Column="0"/>
                     <TextBox Grid.Row="1" Grid.Column="3" Text="{Binding ElementName=volleyballSlider, Path=Value, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" DockPanel.Dock="Right" TextAlignment="Right" Width="20" Height="20"/>
-                    <Slider Grid.Row="1" Grid.ColumnSpan="3" Name="volleyballSlider" Minimum="4" Maximum="32" TickFrequency="4" TickPlacement="BottomRight" IsSnapToTickEnabled="True"></Slider>
+                    <Slider Grid.Row="1" Grid.ColumnSpan="3" Name="volleyballSlider" Minimum="4" Maximum="32" TickFrequency="1" TickPlacement="BottomRight" IsSnapToTickEnabled="True"></Slider>
                     
                     <TabControl Grid.Row="3" Grid.ColumnSpan="4">
                         <TabItem Header="Drużyny">
@@ -99,7 +99,7 @@
                     </Grid.RowDefinitions>
                     <Label Content="Ilość drużyn:" Grid.Row="0" Grid.Column="0"/>
                     <TextBox Grid.Row="1" Grid.Column="3" Text="{Binding ElementName=dodgeballSlider, Path=Value, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" DockPanel.Dock="Right" TextAlignment="Right" Width="20" Height="20"/>
-                    <Slider Grid.Row="1" Grid.ColumnSpan="3" Name="dodgeballSlider" Minimum="4" Maximum="32" TickFrequency="4" TickPlacement="BottomRight" IsSnapToTickEnabled="True"></Slider>
+                    <Slider Grid.Row="1" Grid.ColumnSpan="3" Name="dodgeballSlider" Minimum="4" Maximum="32" TickFrequency="1" TickPlacement="BottomRight" IsSnapToTickEnabled="True"></Slider>
 
                     <TabControl Grid.Row="3" Grid.ColumnSpan="4">
                         <TabItem Header="Drużyny">
@@ -172,7 +172,7 @@
                     </Grid.RowDefinitions>
                     <Label Content="Ilość drużyn:" Grid.Row="0" Grid.Column="0"/>
                     <TextBox Grid.Row="1" Grid.Column="3" Text="{Binding ElementName=ropeDraggingSlider, Path=Value, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" DockPanel.Dock="Right" TextAlignment="Right" Width="20" Height="20"/>
-                    <Slider Grid.Row="1" Grid.ColumnSpan="3" Name="ropeDraggingSlider" Minimum="4" Maximum="32" TickFrequency="4" TickPlacement="BottomRight" IsSnapToTickEnabled="True"></Slider>
+                    <Slider Grid.Row="1" Grid.ColumnSpan="3" Name="ropeDraggingSlider" Minimum="4" Maximum="32" TickFrequency="1" TickPlacement="BottomRight" IsSnapToTickEnabled="True"></Slider>
 
                     <TabControl Grid.Row="3" Grid.ColumnSpan="4">
                         <TabItem Header="Drużyny">
