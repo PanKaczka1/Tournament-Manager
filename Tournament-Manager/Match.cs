@@ -10,7 +10,6 @@ namespace Tournament_Manager
     {
         protected Team team1, team2;
         protected Team winner;
-        protected int refereesNo;
         protected Referee[] referees;
 
         public abstract void Play(int points1, int points2);

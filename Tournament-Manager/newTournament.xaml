@@ -8,7 +8,228 @@
       d:DesignHeight="300" d:DesignWidth="300"
       Title="newTournament">
 
-    <Grid>
-        <TextBlock>newTournament.xaml</TextBlock>
-    </Grid>
+    <DockPanel>
+        <Button Height="30" Width="100" DockPanel.Dock="Bottom">Dalej</Button>
+        <TabControl DockPanel.Dock="Top">
+            <TabItem Header="Siatkówka">
+                <Grid Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="30"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Label Content="Ilość drużyn:" Grid.Row="0" Grid.Column="0"/>
+                    <TextBox Grid.Row="1" Grid.Column="3" Text="{Binding ElementName=volleyballSlider, Path=Value, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" DockPanel.Dock="Right" TextAlignment="Right" Width="20" Height="20"/>
+                    <Slider Grid.Row="1" Grid.ColumnSpan="3" Name="volleyballSlider" Minimum="4" Maximum="32" TickFrequency="4" TickPlacement="BottomRight" IsSnapToTickEnabled="True"></Slider>
+                    
+                    <TabControl Grid.Row="3" Grid.ColumnSpan="4">
+                        <TabItem Header="Drużyny">
+                            <DockPanel>
+                                <StackPanel DockPanel.Dock="Left" Width="120">
+                                    <StackPanel.Resources>
+                                        <Style TargetType="Button">
+                                            <Setter Property="Margin" Value="0,5,0,0" />
+                                        </Style>
+                                    </StackPanel.Resources>
+                                    <TextBox Name="volleyballTeamsTextBox" AcceptsReturn="True" TextWrapping="NoWrap" Height="20"></TextBox>
+                                    <Button>Dodaj drużynę</Button>
+                                    <Button>Usuń drużynę</Button>
+                                </StackPanel>
+                                <ListBox Name="volleyballTeamsLB" HorizontalContentAlignment="Stretch" SelectionMode="Extended">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid Margin="0.2">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="30"></ColumnDefinition>
+                                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                            </DockPanel>
+                        </TabItem>
+                        <TabItem Header="Sędziowie">
+                            <DockPanel>
+                                <StackPanel DockPanel.Dock="Left" Width="120">
+                                    <StackPanel.Resources>
+                                        <Style TargetType="Button">
+                                            <Setter Property="Margin" Value="0,5,0,0" />
+                                        </Style>
+                                    </StackPanel.Resources>
+                                    <TextBox Name="volleyballRefereesTextBox" AcceptsReturn="True" TextWrapping="NoWrap" Height="20"></TextBox>
+                                    <Button>Dodaj sędziego</Button>
+                                    <Button>Usuń sędziego</Button>
+                                </StackPanel>
+                                <ListBox Name="volleyballRefereesLB" HorizontalContentAlignment="Stretch" SelectionMode="Extended">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid Margin="0.2">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="30"></ColumnDefinition>
+                                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                            </DockPanel>
+                        </TabItem>
+                    </TabControl>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Dwa ognie">
+                <Grid Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="30"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Label Content="Ilość drużyn:" Grid.Row="0" Grid.Column="0"/>
+                    <TextBox Grid.Row="1" Grid.Column="3" Text="{Binding ElementName=dodgeballSlider, Path=Value, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" DockPanel.Dock="Right" TextAlignment="Right" Width="20" Height="20"/>
+                    <Slider Grid.Row="1" Grid.ColumnSpan="3" Name="dodgeballSlider" Minimum="4" Maximum="32" TickFrequency="4" TickPlacement="BottomRight" IsSnapToTickEnabled="True"></Slider>
+
+                    <TabControl Grid.Row="3" Grid.ColumnSpan="4">
+                        <TabItem Header="Drużyny">
+                            <DockPanel>
+                                <StackPanel DockPanel.Dock="Left" Width="120">
+                                    <StackPanel.Resources>
+                                        <Style TargetType="Button">
+                                            <Setter Property="Margin" Value="0,5,0,0" />
+                                        </Style>
+                                    </StackPanel.Resources>
+                                    <TextBox Name="dodgeballTeamsTextBox" AcceptsReturn="True" TextWrapping="NoWrap" Height="20"></TextBox>
+                                    <Button>Dodaj drużynę</Button>
+                                    <Button>Usuń drużynę</Button>
+                                </StackPanel>
+                                <ListBox Name="dodgeballTeamsLB" HorizontalContentAlignment="Stretch" SelectionMode="Extended">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid Margin="0.2">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="30"></ColumnDefinition>
+                                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                            </DockPanel>
+                        </TabItem>
+                        <TabItem Header="Sędziowie">
+                            <DockPanel>
+                                <StackPanel DockPanel.Dock="Left" Width="120">
+                                    <StackPanel.Resources>
+                                        <Style TargetType="Button">
+                                            <Setter Property="Margin" Value="0,5,0,0" />
+                                        </Style>
+                                    </StackPanel.Resources>
+                                    <TextBox Name="dodgeballRefereesTextBox" AcceptsReturn="True" TextWrapping="NoWrap" Height="20"></TextBox>
+                                    <Button>Dodaj sędziego</Button>
+                                    <Button>Usuń sędziego</Button>
+                                </StackPanel>
+                                <ListBox Name="dodgeballRefereesLB" HorizontalContentAlignment="Stretch" SelectionMode="Extended">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid Margin="0.2">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="30"></ColumnDefinition>
+                                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                            </DockPanel>
+                        </TabItem>
+                    </TabControl>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Przeciąganie liny">
+                <Grid Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="30"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Label Content="Ilość drużyn:" Grid.Row="0" Grid.Column="0"/>
+                    <TextBox Grid.Row="1" Grid.Column="3" Text="{Binding ElementName=ropeDraggingSlider, Path=Value, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" DockPanel.Dock="Right" TextAlignment="Right" Width="20" Height="20"/>
+                    <Slider Grid.Row="1" Grid.ColumnSpan="3" Name="ropeDraggingSlider" Minimum="4" Maximum="32" TickFrequency="4" TickPlacement="BottomRight" IsSnapToTickEnabled="True"></Slider>
+
+                    <TabControl Grid.Row="3" Grid.ColumnSpan="4">
+                        <TabItem Header="Drużyny">
+                            <DockPanel>
+                                <StackPanel DockPanel.Dock="Left" Width="120">
+                                    <StackPanel.Resources>
+                                        <Style TargetType="Button">
+                                            <Setter Property="Margin" Value="0,5,0,0" />
+                                        </Style>
+                                    </StackPanel.Resources>
+                                    <TextBox Name="ropeDraggingTeamsTextBox" AcceptsReturn="True" TextWrapping="NoWrap" Height="20"></TextBox>
+                                    <Button>Dodaj drużynę</Button>
+                                    <Button>Usuń drużynę</Button>
+                                </StackPanel>
+                                <ListBox Name="ropeDraggingTeamsLB" HorizontalContentAlignment="Stretch" SelectionMode="Extended">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid Margin="0.2">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="30"></ColumnDefinition>
+                                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                            </DockPanel>
+                        </TabItem>
+                        <TabItem Header="Sędziowie">
+                            <DockPanel>
+                                <StackPanel DockPanel.Dock="Left" Width="120">
+                                    <StackPanel.Resources>
+                                        <Style TargetType="Button">
+                                            <Setter Property="Margin" Value="0,5,0,0" />
+                                        </Style>
+                                    </StackPanel.Resources>
+                                    <TextBox Name="ropeDraggingRefereesTextBox" AcceptsReturn="True" TextWrapping="NoWrap" Height="20"></TextBox>
+                                    <Button>Dodaj sędziego</Button>
+                                    <Button>Usuń sędziego</Button>
+                                </StackPanel>
+                                <ListBox Name="ropeDraggingRefereesLB" HorizontalContentAlignment="Stretch" SelectionMode="Extended">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid Margin="0.2">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="30"></ColumnDefinition>
+                                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                            </DockPanel>
+                        </TabItem>
+                    </TabControl>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </DockPanel>
 </Page>
