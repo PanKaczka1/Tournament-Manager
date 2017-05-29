@@ -54,6 +54,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Contest.cs" />
+    <Compile Include="Cup.cs" />
+    <Compile Include="League.cs" />
+    <Compile Include="Stage.cs" />
+    <Compile Include="Tournament.cs" />
     <Page Include="loadTournament.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
