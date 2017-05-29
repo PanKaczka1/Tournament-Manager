@@ -11,39 +11,21 @@ namespace Tournament_Manager
         private Match semifinal1;
         private Match semifinal2;
         private Match final;
-
-        public void generateSemifinals()
+        public Match Semifinal1
         {
-            if(Discipline.get == Disc.Volleyball)
-            {
-                semifinal1 = new VolleyballMatch(team1, team2, referee1, referee2, referee3);
-                semifinal2 = new VolleyballMatch(team1, team2, referee1, referee2, referee3);
-            }
-            if (Discipline.get == Disc.RopeDragging)
-            {
-                semifinal1 = new RopeDraggingMatch(team1, team2, referee);
-                semifinal2 = new RopeDraggingMatch(team1, team2, referee);
-            }
-            if (Discipline.get == Disc.Dodgeball)
-            {
-                semifinal1 = new RopeDraggingMatch(team1, team2, referee);
-                semifinal2 = new RopeDraggingMatch(team1, team2, referee);
-            }
+            get { return semifinal1; }
+            set { semifinal1 = value; }
         }
-        public void generateFinals()
+        public Match Semifinal2
         {
-            if (Discipline.get == Disc.Volleyball)
-            {
-                final = new VolleyballMatch(team1, team2, referee1, referee2, referee3);
-            }
-            if (Discipline.get == Disc.RopeDragging)
-            {
-                final = new RopeDraggingMatch(team1, team2, referee);
-            }
-            if (Discipline.get == Disc.Dodgeball)
-            {
-                final = new RopeDraggingMatch(team1, team2, referee);
-            }
+            get { return semifinal2; }
+            set { semifinal2 = value; }
+        }
+        public Match Final
+        {
+            get { return final; }
+            set { final = value; }
+        }
         public override void printScores()
         {
 
