@@ -22,6 +22,7 @@ namespace Tournament_Manager
         {
             if (points1 > points2)
             {
+                winner = team1;
                 if (points2 == 2)
                 {
                     team1.Points += 2;
@@ -33,6 +34,7 @@ namespace Tournament_Manager
                 }
             } else
             {
+                winner = team2;
                 if (points1 == 2)
                 {
                     team1.Points += 1;

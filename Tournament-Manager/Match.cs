@@ -9,6 +9,7 @@ namespace Tournament_Manager
     abstract class Match
     {
         protected Team team1, team2;
+        protected Team winner;
         protected int refereesNo;
         protected Referee[] referees;
 

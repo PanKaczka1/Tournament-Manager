@@ -19,10 +19,12 @@ namespace Tournament_Manager
         {
             if (points1 > points2)
             {
+                winner = team1;
                 team1.Points += this.WinningPoints();
                 team2.Points += this.LosingPoints();
             } else
             {
+                winner = team2;
                 team1.Points += this.LosingPoints();
                 team2.Points += this.WinningPoints();
             }
