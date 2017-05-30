@@ -26,6 +26,9 @@ namespace Tournament_Manager
         {
             tournament = t;
             InitializeComponent();
+            volleyballTeamsLeftLabel.Content = tournament.ContestVolleyball.TeamsAmount - tournament.ContestVolleyball.Teams.Count();
+
+            tournament.ContestVolleyball.TeamsAmount = (uint)volleyballSlider.Value;
 
             volleyballTeamsLB.ItemsSource = tournament.ContestVolleyball.Teams;
             volleyballRefereesLB.ItemsSource = tournament.ContestVolleyball.Referees;
@@ -40,17 +43,20 @@ namespace Tournament_Manager
         private void volleyballAddTeamBtn_Click(object sender, RoutedEventArgs e)
         {
             String trimmed = volleyballTeamsTextBox.Text.Trim();
-            if (trimmed != "")
+            if (trimmed != "" && tournament.ContestVolleyball.Teams.Count() < tournament.ContestVolleyball.TeamsAmount)
             {
                 Team t = new Team(volleyballTeamsTextBox.Text);
                 tournament.ContestVolleyball.addTeam(t);
                 volleyballTeamsTextBox.Text = "";
+                volleyballTeamsLeftLabel.Content = tournament.ContestVolleyball.TeamsAmount - tournament.ContestVolleyball.Teams.Count();
             }
         }
 
         private void volleyballRemoveTeamBtn_Click(object sender, RoutedEventArgs e)
         {
-            tournament.ContestVolleyball.removeTeam((Team)volleyballTeamsLB.SelectedItem);    
+            tournament.ContestVolleyball.removeTeam((Team)volleyballTeamsLB.SelectedItem);
+            volleyballTeamsLeftLabel.Content = tournament.ContestVolleyball.TeamsAmount - tournament.ContestVolleyball.Teams.Count();
+
         }
 
         private void volleyballAddRefereeBtn_Click(object sender, RoutedEventArgs e)
@@ -69,5 +75,14 @@ namespace Tournament_Manager
             tournament.ContestVolleyball.removeReferee((Referee)volleyballRefereesLB.SelectedItem);
         }
 
+        private void volleyballSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            tournament.ContestVolleyball.TeamsAmount = (uint)volleyballSlider.Value;
+            while (tournament.ContestVolleyball.Teams.Count > tournament.ContestVolleyball.TeamsAmount)
+                tournament.ContestVolleyball.Teams.RemoveAt(tournament.ContestVolleyball.Teams.Count - 1);
+
+            if (volleyballTeamsLeftLabel != null)
+                volleyballTeamsLeftLabel.Content = tournament.ContestVolleyball.TeamsAmount - tournament.ContestVolleyball.Teams.Count();
+        }
     }
 }

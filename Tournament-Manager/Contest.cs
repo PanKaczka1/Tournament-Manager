@@ -15,6 +15,13 @@ namespace Tournament_Manager
         protected League league;
         protected Cup cup;
         protected Disc discipline;
+        protected uint teamsAmount;
+
+        public uint TeamsAmount
+        {
+            get { return teamsAmount; }
+            set { teamsAmount = value; }
+        }
         public Disc Discipline
         {
             get { return discipline; }
@@ -38,42 +45,44 @@ namespace Tournament_Manager
             referees = new ObservableCollection<Referee>();
             league = new League();
             cup = new Cup();
+            teamsAmount = 4;
             this.discipline = discipline;
         }
         public void generateSemifinals()
         {
             List<Team> SortedList = teams.OrderByDescending(o => o.Points).ToList();
             Random rnd = new Random();
-            if (Discipline == Disc.Volleyball)
+            switch (Discipline)
             {
-                cup.Semifinal1 = new VolleyballMatch(teams[0], teams[3], referees[rnd.Next(referees.Count - 1)], referees[rnd.Next(referees.Count - 1)], referees[rnd.Next(referees.Count - 1)]);
-                cup.Semifinal2 = new VolleyballMatch(teams[1], teams[2], referees[rnd.Next(referees.Count - 1)], referees[rnd.Next(referees.Count - 1)], referees[rnd.Next(referees.Count - 1)]);
-            }
-            else if (Discipline == Disc.RopeDragging)
-            {
-                cup.Semifinal1 = new RopeDraggingMatch(teams[0], teams[3], referees[rnd.Next(referees.Count - 1)]);
-                cup.Semifinal2 = new RopeDraggingMatch(teams[1], teams[2], referees[rnd.Next(referees.Count - 1)]);
-            }
-            else if (Discipline == Disc.Dodgeball)
-            {
-                cup.Semifinal1 = new DodgeballMatch(teams[0], teams[3], referees[rnd.Next(referees.Count - 1)]);
-                cup.Semifinal2 = new DodgeballMatch(teams[1], teams[2], referees[rnd.Next(referees.Count - 1)]);
+                case Disc.Volleyball:
+                    cup.Semifinal1 = new VolleyballMatch(teams[0], teams[3], referees[rnd.Next(referees.Count - 1)], referees[rnd.Next(referees.Count - 1)], referees[rnd.Next(referees.Count - 1)]);
+                    cup.Semifinal2 = new VolleyballMatch(teams[1], teams[2], referees[rnd.Next(referees.Count - 1)], referees[rnd.Next(referees.Count - 1)], referees[rnd.Next(referees.Count - 1)]);
+                    break;
+                case Disc.RopeDragging:
+                    cup.Semifinal1 = new RopeDraggingMatch(teams[0], teams[3], referees[rnd.Next(referees.Count - 1)]);
+                    cup.Semifinal2 = new RopeDraggingMatch(teams[1], teams[2], referees[rnd.Next(referees.Count - 1)]);
+                    break;
+                case Disc.Dodgeball:
+                    cup.Semifinal1 = new DodgeballMatch(teams[0], teams[3], referees[rnd.Next(referees.Count - 1)]);
+                    cup.Semifinal2 = new DodgeballMatch(teams[1], teams[2], referees[rnd.Next(referees.Count - 1)]);
+                    break;
             }
         }
+
         public void generateFinals()
         {
             Random rnd = new Random();
-            if (Discipline == Disc.Volleyball)
+            switch (Discipline)
             {
-                cup.Final = new VolleyballMatch(cup.Semifinal1.Winner, cup.Semifinal2.Winner, referees[rnd.Next(referees.Count - 1)], referees[rnd.Next(referees.Count - 1)], referees[rnd.Next(referees.Count - 1)]);
-            }
-            else if (Discipline == Disc.RopeDragging)
-            {
-                cup.Final = new RopeDraggingMatch(cup.Semifinal1.Winner, cup.Semifinal2.Winner, referees[rnd.Next(referees.Count - 1)]);
-            }
-            else if (Discipline == Disc.Dodgeball)
-            {
-                cup.Final = new DodgeballMatch(cup.Semifinal1.Winner, cup.Semifinal2.Winner, referees[rnd.Next(referees.Count - 1)]);
+                case Disc.Volleyball:
+                    cup.Final = new VolleyballMatch(cup.Semifinal1.Winner, cup.Semifinal2.Winner, referees[rnd.Next(referees.Count - 1)], referees[rnd.Next(referees.Count - 1)], referees[rnd.Next(referees.Count - 1)]);
+                    break;
+                case Disc.RopeDragging:
+                    cup.Final = new RopeDraggingMatch(cup.Semifinal1.Winner, cup.Semifinal2.Winner, referees[rnd.Next(referees.Count - 1)]);
+                    break;
+                case Disc.Dodgeball:
+                    cup.Final = new DodgeballMatch(cup.Semifinal1.Winner, cup.Semifinal2.Winner, referees[rnd.Next(referees.Count - 1)]);
+                    break;
             }
         }
         public void addTeam(Team team)
