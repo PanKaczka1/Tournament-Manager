@@ -27,6 +27,10 @@ namespace Tournament_Manager
             get { return discipline; }
             set { discipline = value; }
         }
+        public League League
+        {
+            get { return league; }
+        }
         public Cup Cup
         {
             get { return cup; }

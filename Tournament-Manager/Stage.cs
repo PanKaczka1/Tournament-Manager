@@ -7,18 +7,9 @@ using System.Threading.Tasks;
 
 namespace Tournament_Manager
 {
-    public class Stage
+    public abstract class Stage
     {
-        protected List<Match> matches;
-        public Stage()
-        {
-            matches = new List<Match>();
-        }
-        public virtual void printScores()
-        {
-        }
-        public virtual void printSchedule()
-        {
-        }
+        public abstract void printScores();
+        public abstract void printSchedule();
     }
 }

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Tournament_Manager
 {
@@ -34,11 +36,17 @@ namespace Tournament_Manager
         }
         public void saveState(string filename)
         {
-
+            FileStream fs = new FileStream(filename, FileMode.Create);
+            BinaryFormatter bf = new BinaryFormatter();
+            bf.Serialize(fs, this);
+            fs.Close();
         }
         public void loadState(string filename)
         {
-
+            FileStream fs = new FileStream(filename, FileMode.Open);
+            BinaryFormatter bf = new BinaryFormatter();
+            bf.Deserialize(fs);
+            fs.Close();
         }
     }
 }
