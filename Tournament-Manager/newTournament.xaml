@@ -60,7 +60,7 @@
                                             <Setter Property="Margin" Value="0,5,0,0" />
                                         </Style>
                                     </StackPanel.Resources>
-                                    <TextBox Name="volleyballRefereesTextBox" AcceptsReturn="True" TextWrapping="NoWrap" Height="20"></TextBox>
+                                    <TextBox Name="volleyballRefereesTextBox" AcceptsReturn="True" TextWrapping="NoWrap" Height="20" KeyDown="volleyballRefereesTextBox_KeyDown"></TextBox>
                                     <Button Name="volleyballAddRefereeBtn" Click="volleyballAddRefereeBtn_Click">Dodaj sędziego</Button>
                                     <Button Name="volleyballRemoveRefereeBtn" Click="volleyballRemoveRefereeBtn_Click">Usuń sędziego</Button>
                                 </StackPanel>
@@ -94,7 +94,7 @@
                     </Grid.RowDefinitions>
                     <Label Content="Ilość drużyn:" Grid.Row="0" Grid.Column="0"/>
                     <TextBox Grid.Row="1" Grid.Column="3" Text="{Binding ElementName=dodgeballSlider, Path=Value, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" DockPanel.Dock="Right" TextAlignment="Right" Width="20" Height="20"/>
-                    <Slider Grid.Row="1" Grid.ColumnSpan="3" Name="dodgeballSlider" Minimum="4" Maximum="32" TickFrequency="1" TickPlacement="BottomRight" IsSnapToTickEnabled="True"></Slider>
+                    <Slider Grid.Row="1" Grid.ColumnSpan="3" Name="dodgeballSlider" Minimum="4" Maximum="32" TickFrequency="1" TickPlacement="BottomRight" IsSnapToTickEnabled="True" ValueChanged="dodgeballSlider_ValueChanged"></Slider>
 
                     <TabControl Grid.Row="3" Grid.ColumnSpan="4">
                         <TabItem Header="Drużyny">
@@ -106,18 +106,15 @@
                                         </Style>
                                     </StackPanel.Resources>
                                     <TextBox Name="dodgeballTeamsTextBox" AcceptsReturn="True" TextWrapping="NoWrap" Height="20"></TextBox>
-                                    <Button Name="dodgeballAddTeamBtn">Dodaj drużynę</Button>
-                                    <Button Name="dodgeballRemoveTeamBtn" HorizontalAlignment="Left" Width="120">Usuń drużynę</Button>
+                                    <Button Name="dodgeballAddTeamBtn" Click="dodgeballAddTeamBtn_Click">Dodaj drużynę</Button>
+                                    <Button Name="dodgeballRemoveTeamBtn" HorizontalAlignment="Left" Width="120" Click="dodgeballRemoveTeamBtn_Click">Usuń drużynę</Button>
+                                    <TextBlock>Pozostało drużyn:</TextBlock>
+                                    <Label Name="dodgeballTeamsLeftLabel"/>
                                 </StackPanel>
                                 <ListBox Name="dodgeballTeamsLB" HorizontalContentAlignment="Stretch" SelectionMode="Single">
                                     <ListBox.ItemTemplate>
                                         <DataTemplate>
-                                            <Grid Margin="0.2">
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="30"></ColumnDefinition>
-                                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                                </Grid.ColumnDefinitions>
-                                            </Grid>
+                                            <TextBlock Text="{Binding Name}"/>
                                         </DataTemplate>
                                     </ListBox.ItemTemplate>
                                 </ListBox>
@@ -131,19 +128,17 @@
                                             <Setter Property="Margin" Value="0,5,0,0" />
                                         </Style>
                                     </StackPanel.Resources>
-                                    <TextBox Name="dodgeballRefereesTextBox" AcceptsReturn="True" TextWrapping="NoWrap" Height="20"></TextBox>
-                                    <Button Name="dodgeballAddRefereeBtn">Dodaj sędziego</Button>
-                                    <Button Name="dodgeballRemoveRefereeBtn">Usuń sędziego</Button>
+                                    <TextBox Name="dodgeballRefereesTextBox" AcceptsReturn="True" TextWrapping="NoWrap" Height="20" KeyDown="dodgeballRefereesTextBox_KeyDown"></TextBox>
+                                    <Button Name="dodgeballAddRefereeBtn" Click="dodgeballAddRefereeBtn_Click">Dodaj sędziego</Button>
+                                    <Button Name="dodgeballRemoveRefereeBtn" Click="dodgeballRemoveRefereeBtn_Click">Usuń sędziego</Button>
                                 </StackPanel>
                                 <ListBox Name="dodgeballRefereesLB" HorizontalContentAlignment="Stretch" SelectionMode="Single">
                                     <ListBox.ItemTemplate>
                                         <DataTemplate>
-                                            <Grid Margin="0.2">
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="30"></ColumnDefinition>
-                                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                                </Grid.ColumnDefinitions>
-                                            </Grid>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="{Binding Name}"/>
+                                                <TextBlock Text="{Binding Surname}" Margin="2,0,0,0"/>
+                                            </StackPanel>
                                         </DataTemplate>
                                     </ListBox.ItemTemplate>
                                 </ListBox>
@@ -167,7 +162,7 @@
                     </Grid.RowDefinitions>
                     <Label Content="Ilość drużyn:" Grid.Row="0" Grid.Column="0"/>
                     <TextBox Grid.Row="1" Grid.Column="3" Text="{Binding ElementName=ropeDraggingSlider, Path=Value, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" DockPanel.Dock="Right" TextAlignment="Right" Width="20" Height="20"/>
-                    <Slider Grid.Row="1" Grid.ColumnSpan="3" Name="ropeDraggingSlider" Minimum="4" Maximum="32" TickFrequency="1" TickPlacement="BottomRight" IsSnapToTickEnabled="True"></Slider>
+                    <Slider Grid.Row="1" Grid.ColumnSpan="3" Name="ropeDraggingSlider" Minimum="4" Maximum="32" TickFrequency="1" TickPlacement="BottomRight" IsSnapToTickEnabled="True" ValueChanged="ropeDraggingSlider_ValueChanged"></Slider>
 
                     <TabControl Grid.Row="3" Grid.ColumnSpan="4">
                         <TabItem Header="Drużyny">
@@ -179,18 +174,15 @@
                                         </Style>
                                     </StackPanel.Resources>
                                     <TextBox Name="ropeDraggingTeamsTextBox" AcceptsReturn="True" TextWrapping="NoWrap" Height="20"></TextBox>
-                                    <Button Name="ropeDraggingAddTeamBtn">Dodaj drużynę</Button>
-                                    <Button Name="ropeDraggingRemoveTeamBtn">Usuń drużynę</Button>
+                                    <Button Name="ropeDraggingAddTeamBtn" Click="ropeDraggingAddTeamBtn_Click">Dodaj drużynę</Button>
+                                    <Button Name="ropeDraggingRemoveTeamBtn" Click="ropeDraggingRemoveTeamBtn_Click">Usuń drużynę</Button>
+                                    <TextBlock>Pozostało drużyn:</TextBlock>
+                                    <Label Name="ropeDraggingTeamsLeftLabel"/>
                                 </StackPanel>
                                 <ListBox Name="ropeDraggingTeamsLB" HorizontalContentAlignment="Stretch" SelectionMode="Single">
                                     <ListBox.ItemTemplate>
                                         <DataTemplate>
-                                            <Grid Margin="0.2">
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="30"></ColumnDefinition>
-                                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                                </Grid.ColumnDefinitions>
-                                            </Grid>
+                                            <TextBlock Text="{Binding Name}"/>
                                         </DataTemplate>
                                     </ListBox.ItemTemplate>
                                 </ListBox>
@@ -204,19 +196,17 @@
                                             <Setter Property="Margin" Value="0,5,0,0" />
                                         </Style>
                                     </StackPanel.Resources>
-                                    <TextBox Name="ropeDraggingRefereesTextBox" AcceptsReturn="True" TextWrapping="NoWrap" Height="20"></TextBox>
-                                    <Button>Dodaj sędziego</Button>
-                                    <Button>Usuń sędziego</Button>
+                                    <TextBox Name="ropeDraggingRefereesTextBox" AcceptsReturn="True" TextWrapping="NoWrap" Height="20" KeyDown="ropeDraggingRefereesTextBox_KeyDown"></TextBox>
+                                    <Button Name="ropeDraggingAddRefereeBtn" Click="ropeDraggingAddRefereeBtn_Click">Dodaj sędziego</Button>
+                                    <Button Name="ropeDraggingRemoveRefereeBtn" Click="ropeDraggingRemoveRefereeBtn_Click">Usuń sędziego</Button>
                                 </StackPanel>
                                 <ListBox Name="ropeDraggingRefereesLB" HorizontalContentAlignment="Stretch" SelectionMode="Extended">
                                     <ListBox.ItemTemplate>
                                         <DataTemplate>
-                                            <Grid Margin="0.2">
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="30"></ColumnDefinition>
-                                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                                </Grid.ColumnDefinitions>
-                                            </Grid>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="{Binding Name}"/>
+                                                <TextBlock Text="{Binding Surname}" Margin="2,0,0,0"/>
+                                            </StackPanel>
                                         </DataTemplate>
                                     </ListBox.ItemTemplate>
                                 </ListBox>

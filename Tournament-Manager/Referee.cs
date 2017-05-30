@@ -24,15 +24,22 @@ namespace Tournament_Manager
         }
         public Referee(String input)
         {
+            input = input.Trim();
             String[] words = input.Split(' ');
             if (words.Length != 2)
             {
                 throw new NotImplementedException(); //TODO
             } else
             {
-                name = words[0];
-                surname = words[1];
+                name = FirstCharToUpper(words[0]);
+                surname = FirstCharToUpper(words[1]);
             }
+        }
+        public static string FirstCharToUpper(string input)
+        {
+            if (String.IsNullOrEmpty(input))
+                throw new ArgumentException("ARGH!");
+            return input.First().ToString().ToUpper() + input.Substring(1).ToLower();
         }
     }
 }
