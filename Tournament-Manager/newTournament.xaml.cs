@@ -20,20 +20,54 @@ namespace Tournament_Manager
     /// </summary>
     public partial class newTournament : Page
     {
-       
-        public newTournament()
+        private Tournament tournament;
+
+        public newTournament(Tournament t)
         {
+            tournament = t;
             InitializeComponent();
+
+            volleyballTeamsLB.ItemsSource = tournament.ContestVolleyball.Teams;
+            volleyballRefereesLB.ItemsSource = tournament.ContestVolleyball.Referees;
+
+            dodgeballTeamsLB.ItemsSource = tournament.ContestDodgeball.Teams;
+            dodgeballRefereesLB.ItemsSource = tournament.ContestDodgeball.Referees;
+
+            ropeDraggingTeamsLB.ItemsSource = tournament.ContestRopeDragging.Teams;
+            ropeDraggingTeamsLB.ItemsSource = tournament.ContestRopeDragging.Referees;
         }
 
         private void volleyballAddTeamBtn_Click(object sender, RoutedEventArgs e)
         {
-            Team t = new Team(volleyballTeamsTextBox.Text);
+            String trimmed = volleyballTeamsTextBox.Text.Trim();
+            if (trimmed != "")
+            {
+                Team t = new Team(volleyballTeamsTextBox.Text);
+                tournament.ContestVolleyball.addTeam(t);
+                volleyballTeamsTextBox.Text = "";
+            }
         }
 
         private void volleyballRemoveTeamBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            tournament.ContestVolleyball.removeTeam((Team)volleyballTeamsLB.SelectedItem);    
         }
+
+        private void volleyballAddRefereeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            String trimmed = volleyballRefereesTextBox.Text.Trim();
+            if (trimmed != "")
+            {
+                Referee r = new Referee(volleyballRefereesTextBox.Text);
+                tournament.ContestVolleyball.addReferee(r);
+                volleyballRefereesTextBox.Text = "";
+            }
+        }
+
+        private void volleyballRemoveRefereeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            tournament.ContestVolleyball.removeReferee((Referee)volleyballRefereesLB.SelectedItem);
+        }
+
     }
 }

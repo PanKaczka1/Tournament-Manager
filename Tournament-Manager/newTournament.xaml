@@ -41,15 +41,10 @@
                                     <Button Name="volleyballAddTeamBtn" Click="volleyballAddTeamBtn_Click">Dodaj drużynę</Button>
                                     <Button Name="volleyballRemoveTeamBtn" Click="volleyballRemoveTeamBtn_Click">Usuń drużynę</Button>
                                 </StackPanel>
-                                <ListBox Name="volleyballTeamsLB" HorizontalContentAlignment="Stretch" SelectionMode="Extended">
+                                <ListBox Name="volleyballTeamsLB" HorizontalContentAlignment="Stretch" SelectionMode="Single" ItemsSource="{Binding}">
                                     <ListBox.ItemTemplate>
                                         <DataTemplate>
-                                            <Grid Margin="0.2">
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="30"></ColumnDefinition>
-                                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                                </Grid.ColumnDefinitions>
-                                            </Grid>
+                                            <TextBlock Text="{Binding Name}"/>
                                         </DataTemplate>
                                     </ListBox.ItemTemplate>
                                 </ListBox>
@@ -64,18 +59,16 @@
                                         </Style>
                                     </StackPanel.Resources>
                                     <TextBox Name="volleyballRefereesTextBox" AcceptsReturn="True" TextWrapping="NoWrap" Height="20"></TextBox>
-                                    <Button>Dodaj sędziego</Button>
-                                    <Button>Usuń sędziego</Button>
+                                    <Button Name="volleyballAddRefereeBtn" Click="volleyballAddRefereeBtn_Click">Dodaj sędziego</Button>
+                                    <Button Name="volleyballRemoveRefereeBtn" Click="volleyballRemoveRefereeBtn_Click">Usuń sędziego</Button>
                                 </StackPanel>
-                                <ListBox Name="volleyballRefereesLB" HorizontalContentAlignment="Stretch" SelectionMode="Extended">
+                                <ListBox Name="volleyballRefereesLB" HorizontalContentAlignment="Stretch" SelectionMode="Single" ItemsSource="{Binding}">
                                     <ListBox.ItemTemplate>
                                         <DataTemplate>
-                                            <Grid Margin="0.2">
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="30"></ColumnDefinition>
-                                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                                </Grid.ColumnDefinitions>
-                                            </Grid>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="{Binding Name}"/>
+                                                <TextBlock Text="{Binding Surname}" Margin="2,0,0,0"/>
+                                            </StackPanel>
                                         </DataTemplate>
                                     </ListBox.ItemTemplate>
                                 </ListBox>
@@ -111,10 +104,10 @@
                                         </Style>
                                     </StackPanel.Resources>
                                     <TextBox Name="dodgeballTeamsTextBox" AcceptsReturn="True" TextWrapping="NoWrap" Height="20"></TextBox>
-                                    <Button>Dodaj drużynę</Button>
-                                    <Button>Usuń drużynę</Button>
+                                    <Button Name="dodgeballAddTeamBtn">Dodaj drużynę</Button>
+                                    <Button Name="dodgeballRemoveTeamBtn" HorizontalAlignment="Left" Width="120">Usuń drużynę</Button>
                                 </StackPanel>
-                                <ListBox Name="dodgeballTeamsLB" HorizontalContentAlignment="Stretch" SelectionMode="Extended">
+                                <ListBox Name="dodgeballTeamsLB" HorizontalContentAlignment="Stretch" SelectionMode="Single">
                                     <ListBox.ItemTemplate>
                                         <DataTemplate>
                                             <Grid Margin="0.2">
@@ -137,10 +130,10 @@
                                         </Style>
                                     </StackPanel.Resources>
                                     <TextBox Name="dodgeballRefereesTextBox" AcceptsReturn="True" TextWrapping="NoWrap" Height="20"></TextBox>
-                                    <Button>Dodaj sędziego</Button>
-                                    <Button>Usuń sędziego</Button>
+                                    <Button Name="dodgeballAddRefereeBtn">Dodaj sędziego</Button>
+                                    <Button Name="dodgeballRemoveRefereeBtn">Usuń sędziego</Button>
                                 </StackPanel>
-                                <ListBox Name="dodgeballRefereesLB" HorizontalContentAlignment="Stretch" SelectionMode="Extended">
+                                <ListBox Name="dodgeballRefereesLB" HorizontalContentAlignment="Stretch" SelectionMode="Single">
                                     <ListBox.ItemTemplate>
                                         <DataTemplate>
                                             <Grid Margin="0.2">
@@ -184,10 +177,10 @@
                                         </Style>
                                     </StackPanel.Resources>
                                     <TextBox Name="ropeDraggingTeamsTextBox" AcceptsReturn="True" TextWrapping="NoWrap" Height="20"></TextBox>
-                                    <Button>Dodaj drużynę</Button>
-                                    <Button>Usuń drużynę</Button>
+                                    <Button Name="ropeDraggingAddTeamBtn">Dodaj drużynę</Button>
+                                    <Button Name="ropeDraggingRemoveTeamBtn">Usuń drużynę</Button>
                                 </StackPanel>
-                                <ListBox Name="ropeDraggingTeamsLB" HorizontalContentAlignment="Stretch" SelectionMode="Extended">
+                                <ListBox Name="ropeDraggingTeamsLB" HorizontalContentAlignment="Stretch" SelectionMode="Single">
                                     <ListBox.ItemTemplate>
                                         <DataTemplate>
                                             <Grid Margin="0.2">

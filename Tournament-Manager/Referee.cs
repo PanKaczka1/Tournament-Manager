@@ -22,6 +22,17 @@ namespace Tournament_Manager
             get { return name; }
             set { name = value; }
         }
-
+        public Referee(String input)
+        {
+            String[] words = input.Split(' ');
+            if (words.Length != 2)
+            {
+                throw new NotImplementedException(); //TODO
+            } else
+            {
+                name = words[0];
+                surname = words[1];
+            }
+        }
     }
 }

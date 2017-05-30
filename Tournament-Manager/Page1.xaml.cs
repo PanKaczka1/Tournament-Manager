@@ -27,7 +27,8 @@ namespace Tournament_Manager
 
         private void newTournamentBtn_Click(object sender, RoutedEventArgs e)
         {
-            newTournament nt = new newTournament();
+            Tournament tournament = new Tournament();
+            newTournament nt = new newTournament(tournament);
             NavigationService.Navigate(nt);
         }
 

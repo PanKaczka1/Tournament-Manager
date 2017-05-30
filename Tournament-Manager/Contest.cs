@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Collections.ObjectModel;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,8 +10,8 @@ namespace Tournament_Manager
 {
     public class Contest
     {
-        protected List<Team> teams;
-        protected List<Referee> referees;
+        protected ObservableCollection<Team> teams;
+        protected ObservableCollection<Referee> referees;
         protected League league;
         protected Cup cup;
         protected Disc discipline;
@@ -23,14 +24,18 @@ namespace Tournament_Manager
         {
             get { return cup; }
         }
-        public List<Team> Teams
+        public ObservableCollection<Team> Teams
         {
             get { return teams; }
         }
+        public ObservableCollection<Referee> Referees
+        {
+            get { return referees; }
+        }
         public Contest(Disc discipline)
         {
-            teams = new List<Team>();
-            referees = new List<Referee>();
+            teams = new ObservableCollection<Team>();
+            referees = new ObservableCollection<Referee>();
             league = new League();
             cup = new Cup();
             this.discipline = discipline;
@@ -83,7 +88,7 @@ namespace Tournament_Manager
         {
             referees.Add(referee);
         }
-        public void reamoveReferee(Referee referee)
+        public void removeReferee(Referee referee)
         {
             referees.Remove(referee);
         }
