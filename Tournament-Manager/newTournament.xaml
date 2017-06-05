@@ -9,7 +9,7 @@
       Title="newTournament">
 
     <DockPanel>
-        <Button Height="30" Width="100" DockPanel.Dock="Bottom">Dalej</Button>
+        <Button Height="30" Width="100" DockPanel.Dock="Bottom" Name="nextBtn" Click="nextBtn_Click">Dalej</Button>
         <TabControl DockPanel.Dock="Top">
             <TabItem Header="Siatkówka">
                 <Grid Margin="10">

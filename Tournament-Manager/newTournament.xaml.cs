@@ -21,10 +21,12 @@ namespace Tournament_Manager
     public partial class newTournament : Page
     {
         private Tournament tournament;
+        private Boolean goNext;
 
         public newTournament(Tournament t)
         {
             tournament = t;
+            goNext = false;
             InitializeComponent();
             volleyballTeamsLeftLabel.Content = tournament.ContestVolleyball.TeamsAmount - tournament.ContestVolleyball.Teams.Count();
             dodgeballTeamsLeftLabel.Content = tournament.ContestDodgeball.TeamsAmount - tournament.ContestDodgeball.Teams.Count();
@@ -57,7 +59,8 @@ namespace Tournament_Manager
                 tournament.ContestVolleyball.addTeam(t);
                 volleyballTeamsLeftLabel.Content = tournament.ContestVolleyball.TeamsAmount - tournament.ContestVolleyball.Teams.Count();
                 volleyballTeamsTextBox.Text = "";
-                
+                if (tournament.ContestVolleyball.Teams.Count >= tournament.ContestVolleyball.TeamsAmount)
+                    goNext = true;
             }
         }
 
@@ -116,7 +119,8 @@ namespace Tournament_Manager
                 tournament.ContestDodgeball.addTeam(t);
                 dodgeballTeamsLeftLabel.Content = tournament.ContestDodgeball.TeamsAmount - tournament.ContestDodgeball.Teams.Count();
                 dodgeballTeamsTextBox.Text = "";
-
+                if (tournament.ContestDodgeball.Teams.Count >= tournament.ContestDodgeball.TeamsAmount)
+                    goNext = true;
             }
         }
 
@@ -161,6 +165,7 @@ namespace Tournament_Manager
             if ((e.Key < Key.A) || (e.Key > Key.Z))
                 e.Handled = true;
         }
+
         private void ropeDraggingAddTeamBtn_Click(object sender, RoutedEventArgs e)
         {
             String trimmed = ropeDraggingTeamsTextBox.Text.Trim();
@@ -175,6 +180,8 @@ namespace Tournament_Manager
                 ropeDraggingTeamsLeftLabel.Content = tournament.ContestRopeDragging.TeamsAmount - tournament.ContestRopeDragging.Teams.Count();
                 ropeDraggingTeamsTextBox.Text = "";
 
+                if (tournament.ContestRopeDragging.Teams.Count >= tournament.ContestRopeDragging.TeamsAmount)
+                    goNext = true;
             }
         }
 
@@ -218,6 +225,15 @@ namespace Tournament_Manager
         {
             if ((e.Key < Key.A) || (e.Key > Key.Z))
                 e.Handled = true;
+        }
+
+        private void nextBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (goNext)
+            {
+                GamePage gp = new GamePage(tournament);
+                NavigationService.Navigate(gp);
+            }
         }
     }
 }
