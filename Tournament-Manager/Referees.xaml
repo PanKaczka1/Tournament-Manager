@@ -1,0 +1,20 @@
+﻿<Window x:Class="Tournament_Manager.Referees"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Tournament_Manager"
+        mc:Ignorable="d"
+        Title="Sędziowie" Height="300" Width="300">
+    <Grid>
+        <ListView x:Name="RefereesList" Height="230" VerticalAlignment="Top" Margin="10,10,9.6,0">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Imie" Width="100" DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Header="Nazwisko" Width="70" DisplayMemberBinding="{Binding Surname}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="exitBtn" Content="Zamknij" Margin="110,245,110.6,0.4" Click="exitBtn_Click"/>
+    </Grid>
+</Window>

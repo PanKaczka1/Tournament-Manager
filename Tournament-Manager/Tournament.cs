@@ -9,6 +9,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 namespace Tournament_Manager
 {
     public enum Disc { Volleyball, RopeDragging, Dodgeball };
+    [Serializable]
     public class Tournament
     {
         private Contest contestVolleyball;

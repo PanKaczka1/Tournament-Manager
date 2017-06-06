@@ -105,9 +105,5 @@ namespace Tournament_Manager
         {
             referees.Remove(referee);
         }
-        public void printReferees()
-        {
-
-        }
     }
 }

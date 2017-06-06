@@ -231,8 +231,8 @@ namespace Tournament_Manager
         {
             if (goNext)
             {
-                GamePage gp = new GamePage(tournament);
-                NavigationService.Navigate(gp);
+                MainPage mp = new MainPage(tournament);
+                NavigationService.Navigate(mp);
             }
         }
     }

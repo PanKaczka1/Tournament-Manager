@@ -61,10 +61,19 @@
       <DependentUpon>GamePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="League.cs" />
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Referee.cs" />
+    <Compile Include="Referees.xaml.cs">
+      <DependentUpon>Referees.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RopeDraggingMatch.cs" />
     <Compile Include="Stage.cs" />
     <Compile Include="Team.cs" />
+    <Compile Include="Teams.xaml.cs">
+      <DependentUpon>Teams.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Tournament.cs" />
     <Compile Include="VolleyballMatch.cs" />
     <Page Include="GamePage.xaml">
@@ -72,6 +81,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="LoadTournament.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -95,6 +108,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Page1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Referees.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Teams.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

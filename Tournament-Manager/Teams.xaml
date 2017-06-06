@@ -1,0 +1,23 @@
+﻿<Window x:Class="Tournament_Manager.Teams"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Tournament_Manager"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="Drużyny">
+
+    <DockPanel>
+        <Button x:Name="exitBtn" Content="Zamknij" Margin="110,245,110.6,0.4" Click="exitBtn_Click" DockPanel.Dock="Bottom"/>
+        <ListView x:Name="TeamsList" Margin="10,10,9.6,-240.4">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Drużyna" Width="100" DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Header="Punkty" Width="70" DisplayMemberBinding="{Binding Points}" />
+                    <GridViewColumn Header="Rozegrane mecze" Width="100" DisplayMemberBinding="{Binding MatchesNo}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </DockPanel>
+</Window>
