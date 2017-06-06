@@ -59,16 +59,16 @@ namespace Tournament_Manager
             switch (Discipline)
             {
                 case Disc.Volleyball:
-                    cup.Semifinal1 = new VolleyballMatch(teams[0], teams[3], referees[rnd.Next(referees.Count - 1)], referees[rnd.Next(referees.Count - 1)], referees[rnd.Next(referees.Count - 1)]);
-                    cup.Semifinal2 = new VolleyballMatch(teams[1], teams[2], referees[rnd.Next(referees.Count - 1)], referees[rnd.Next(referees.Count - 1)], referees[rnd.Next(referees.Count - 1)]);
+                    cup.Semifinal1 = new VolleyballMatch(teams[0], teams[3]);
+                    cup.Semifinal2 = new VolleyballMatch(teams[1], teams[2]);
                     break;
                 case Disc.RopeDragging:
-                    cup.Semifinal1 = new RopeDraggingMatch(teams[0], teams[3], referees[rnd.Next(referees.Count - 1)]);
-                    cup.Semifinal2 = new RopeDraggingMatch(teams[1], teams[2], referees[rnd.Next(referees.Count - 1)]);
+                    cup.Semifinal1 = new RopeDraggingMatch(teams[0], teams[3]);
+                    cup.Semifinal2 = new RopeDraggingMatch(teams[1], teams[2]);
                     break;
                 case Disc.Dodgeball:
-                    cup.Semifinal1 = new DodgeballMatch(teams[0], teams[3], referees[rnd.Next(referees.Count - 1)]);
-                    cup.Semifinal2 = new DodgeballMatch(teams[1], teams[2], referees[rnd.Next(referees.Count - 1)]);
+                    cup.Semifinal1 = new DodgeballMatch(teams[0], teams[3]);
+                    cup.Semifinal2 = new DodgeballMatch(teams[1], teams[2]);
                     break;
             }
         }
@@ -79,15 +79,19 @@ namespace Tournament_Manager
             switch (Discipline)
             {
                 case Disc.Volleyball:
-                    cup.Final = new VolleyballMatch(cup.Semifinal1.Winner, cup.Semifinal2.Winner, referees[rnd.Next(referees.Count - 1)], referees[rnd.Next(referees.Count - 1)], referees[rnd.Next(referees.Count - 1)]);
+                    cup.Final = new VolleyballMatch(cup.Semifinal1.Winner, cup.Semifinal2.Winner);
                     break;
                 case Disc.RopeDragging:
-                    cup.Final = new RopeDraggingMatch(cup.Semifinal1.Winner, cup.Semifinal2.Winner, referees[rnd.Next(referees.Count - 1)]);
+                    cup.Final = new RopeDraggingMatch(cup.Semifinal1.Winner, cup.Semifinal2.Winner);
                     break;
                 case Disc.Dodgeball:
-                    cup.Final = new DodgeballMatch(cup.Semifinal1.Winner, cup.Semifinal2.Winner, referees[rnd.Next(referees.Count - 1)]);
+                    cup.Final = new DodgeballMatch(cup.Semifinal1.Winner, cup.Semifinal2.Winner);
                     break;
             }
+        }
+        public void generateMatch(Team t1, Team t2)
+        {
+
         }
         public void addTeam(Team team)
         {

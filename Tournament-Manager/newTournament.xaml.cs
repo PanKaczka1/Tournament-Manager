@@ -231,6 +231,30 @@ namespace Tournament_Manager
         {
             if (goNext)
             {
+                for (int i = 0; i < tournament.ContestVolleyball.Teams.Count - 1; i++) 
+                {
+                    for (int j = i+1; j < tournament.ContestVolleyball.Teams.Count; j++) 
+                    {
+                        VolleyballMatch vm = new VolleyballMatch(tournament.ContestVolleyball.Teams[i], tournament.ContestVolleyball.Teams[j]);
+                        tournament.ContestVolleyball.League.Matches.Add(vm);
+                    }
+                }
+                for (int i = 0; i < tournament.ContestRopeDragging.Teams.Count - 1; i++) 
+                {
+                    for (int j = i+1; j < tournament.ContestRopeDragging.Teams.Count; j++)
+                    {
+                        RopeDraggingMatch rm = new RopeDraggingMatch(tournament.ContestRopeDragging.Teams[i], tournament.ContestRopeDragging.Teams[j]);
+                        tournament.ContestRopeDragging.League.Matches.Add(rm);
+                    }
+                }
+                for (int i = 0; i < tournament.ContestDodgeball.Teams.Count - 1; i++) 
+                {
+                    for (int j = i+1; j < tournament.ContestDodgeball.Teams.Count; j++)
+                    {
+                        DodgeballMatch dm = new DodgeballMatch(tournament.ContestDodgeball.Teams[i], tournament.ContestDodgeball.Teams[j]);
+                        tournament.ContestDodgeball.League.Matches.Add(dm);
+                    }
+                }
                 MainPage mp = new MainPage(tournament);
                 NavigationService.Navigate(mp);
             }

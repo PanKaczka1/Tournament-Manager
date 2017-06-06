@@ -8,15 +8,10 @@ namespace Tournament_Manager
 {
     public class VolleyballMatch : Match
     {
-        public VolleyballMatch (Team t1, Team t2, Referee r1, Referee r2, Referee r3)
+        public VolleyballMatch (Team t1, Team t2)
         {
             team1 = t1;
             team2 = t2;
-            referees = new Referee[3];
-            referees[0] = r1;
-            referees[1] = r2;
-            referees[2] = r3;
-
         }
         public override void Play(int points1, int points2)
         {

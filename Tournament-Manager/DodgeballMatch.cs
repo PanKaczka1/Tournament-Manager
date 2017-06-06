@@ -8,12 +8,10 @@ namespace Tournament_Manager
 {
     public class DodgeballMatch : Match
     {
-        public DodgeballMatch(Team t1, Team t2, Referee referee)
+        public DodgeballMatch(Team t1, Team t2)
         {
             team1 = t1;
             team2 = t2;
-            referees = new Referee[1];
-            referees[0] = referee;
         }
         public override void Play(int points1, int points2)
         {
