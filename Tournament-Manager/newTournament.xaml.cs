@@ -18,15 +18,13 @@ namespace Tournament_Manager
     /// <summary>
     /// Interaction logic for newTournament.xaml
     /// </summary>
-    public partial class newTournament : Page
+    public partial class NewTournament : Page
     {
         private Tournament tournament;
-        private Boolean goNext;
 
-        public newTournament(Tournament t)
+        public NewTournament(Tournament t)
         {
             tournament = t;
-            goNext = false;
             InitializeComponent();
             volleyballTeamsLeftLabel.Content = tournament.ContestVolleyball.TeamsAmount - tournament.ContestVolleyball.Teams.Count();
             dodgeballTeamsLeftLabel.Content = tournament.ContestDodgeball.TeamsAmount - tournament.ContestDodgeball.Teams.Count();
@@ -59,8 +57,6 @@ namespace Tournament_Manager
                 tournament.ContestVolleyball.addTeam(t);
                 volleyballTeamsLeftLabel.Content = tournament.ContestVolleyball.TeamsAmount - tournament.ContestVolleyball.Teams.Count();
                 volleyballTeamsTextBox.Text = "";
-                if (tournament.ContestVolleyball.Teams.Count >= tournament.ContestVolleyball.TeamsAmount)
-                    goNext = true;
             }
         }
 
@@ -119,8 +115,6 @@ namespace Tournament_Manager
                 tournament.ContestDodgeball.addTeam(t);
                 dodgeballTeamsLeftLabel.Content = tournament.ContestDodgeball.TeamsAmount - tournament.ContestDodgeball.Teams.Count();
                 dodgeballTeamsTextBox.Text = "";
-                if (tournament.ContestDodgeball.Teams.Count >= tournament.ContestDodgeball.TeamsAmount)
-                    goNext = true;
             }
         }
 
@@ -179,9 +173,6 @@ namespace Tournament_Manager
                 tournament.ContestRopeDragging.addTeam(t);
                 ropeDraggingTeamsLeftLabel.Content = tournament.ContestRopeDragging.TeamsAmount - tournament.ContestRopeDragging.Teams.Count();
                 ropeDraggingTeamsTextBox.Text = "";
-
-                if (tournament.ContestRopeDragging.Teams.Count >= tournament.ContestRopeDragging.TeamsAmount)
-                    goNext = true;
             }
         }
 
@@ -229,35 +220,59 @@ namespace Tournament_Manager
 
         private void nextBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (goNext)
+            try
             {
-                for (int i = 0; i < tournament.ContestVolleyball.Teams.Count - 1; i++) 
-                {
-                    for (int j = i+1; j < tournament.ContestVolleyball.Teams.Count; j++) 
-                    {
-                        VolleyballMatch vm = new VolleyballMatch(tournament.ContestVolleyball.Teams[i], tournament.ContestVolleyball.Teams[j]);
-                        tournament.ContestVolleyball.League.Matches.Add(vm);
-                    }
-                }
-                for (int i = 0; i < tournament.ContestRopeDragging.Teams.Count - 1; i++) 
-                {
-                    for (int j = i+1; j < tournament.ContestRopeDragging.Teams.Count; j++)
-                    {
-                        RopeDraggingMatch rm = new RopeDraggingMatch(tournament.ContestRopeDragging.Teams[i], tournament.ContestRopeDragging.Teams[j]);
-                        tournament.ContestRopeDragging.League.Matches.Add(rm);
-                    }
-                }
-                for (int i = 0; i < tournament.ContestDodgeball.Teams.Count - 1; i++) 
-                {
-                    for (int j = i+1; j < tournament.ContestDodgeball.Teams.Count; j++)
-                    {
-                        DodgeballMatch dm = new DodgeballMatch(tournament.ContestDodgeball.Teams[i], tournament.ContestDodgeball.Teams[j]);
-                        tournament.ContestDodgeball.League.Matches.Add(dm);
-                    }
-                }
-                MainPage mp = new MainPage(tournament);
-                NavigationService.Navigate(mp);
+                CheckInputs();
             }
+            catch
+            {
+                //TODO
+            }
+            for (int i = 0; i < tournament.ContestVolleyball.Teams.Count - 1; i++)
+            {
+                for (int j = i + 1; j < tournament.ContestVolleyball.Teams.Count; j++)
+                {
+                    VolleyballMatch vm = new VolleyballMatch(tournament.ContestVolleyball.Teams[i], tournament.ContestVolleyball.Teams[j]);
+                    tournament.ContestVolleyball.League.Matches.Add(vm);
+                }
+            }
+            for (int i = 0; i < tournament.ContestRopeDragging.Teams.Count - 1; i++)
+            {
+                for (int j = i + 1; j < tournament.ContestRopeDragging.Teams.Count; j++)
+                {
+                    RopeDraggingMatch rm = new RopeDraggingMatch(tournament.ContestRopeDragging.Teams[i], tournament.ContestRopeDragging.Teams[j]);
+                    tournament.ContestRopeDragging.League.Matches.Add(rm);
+                }
+            }
+            for (int i = 0; i < tournament.ContestDodgeball.Teams.Count - 1; i++)
+            {
+                for (int j = i + 1; j < tournament.ContestDodgeball.Teams.Count; j++)
+                {
+                    DodgeballMatch dm = new DodgeballMatch(tournament.ContestDodgeball.Teams[i], tournament.ContestDodgeball.Teams[j]);
+                    tournament.ContestDodgeball.League.Matches.Add(dm);
+                }
+            }
+            MainPage mp = new MainPage(tournament);
+            NavigationService.Navigate(mp);
+
+        }
+
+        private void CheckInputs()
+        {
+            if (tournament.ContestVolleyball.Teams.Count < tournament.ContestVolleyball.TeamsAmount)
+                throw new NotImplementedException();
+            if (tournament.ContestVolleyball.Referees.Count() < 3)
+                throw new NotImplementedException();
+
+            if (tournament.ContestDodgeball.Teams.Count < tournament.ContestDodgeball.TeamsAmount)
+                throw new NotImplementedException();
+            if (tournament.ContestDodgeball.Referees.Count() < 1)
+                throw new NotImplementedException();
+
+            if (tournament.ContestRopeDragging.Teams.Count < tournament.ContestRopeDragging.TeamsAmount)
+                throw new NotImplementedException();
+            if (tournament.ContestRopeDragging.Referees.Count() < 1)
+                throw new NotImplementedException();
         }
     }
 }

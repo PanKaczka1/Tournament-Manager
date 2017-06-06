@@ -6,11 +6,11 @@
       xmlns:local="clr-namespace:Tournament_Manager"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
-      Title="Drużyny">
+      Title="Drużyny" SizeToContent="WidthAndHeight">
 
     <DockPanel>
-        <Button x:Name="exitBtn" Content="Zamknij" Margin="110,245,110.6,0.4" Click="exitBtn_Click" DockPanel.Dock="Bottom"/>
-        <ListView x:Name="TeamsList" Margin="10,10,9.6,-240.4">
+        <Button x:Name="exitBtn" Content="Zamknij" Margin="10" Click="exitBtn_Click" DockPanel.Dock="Bottom" Width="150" Height="30"/>
+        <ListView x:Name="TeamsList">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Drużyna" Width="100" DisplayMemberBinding="{Binding Name}" />

@@ -9,34 +9,23 @@
       Title="MainPage">
 
     <DockPanel>
-        <TabControl DockPanel.Dock="Top">
+        <DockPanel.Resources>
+            <Style TargetType="Button">
+                <Setter Property="Margin" Value="0,0,0,10" />
+                <Setter Property="Height" Value="30"/>
+            </Style>
+        </DockPanel.Resources>
+        <StackPanel DockPanel.Dock="Bottom" HorizontalAlignment="Center" Orientation="Horizontal">
+            <Button x:Name="saveBtn" Margin="5" Width="100" Content="Zapisz" Click="saveBtn_Click" />
+            <Button x:Name="exitBtn" Margin="5" Width="100" Content="Wyjście" Click="exitBtn_Click"/>
+        </StackPanel>
+        <TabControl>
             <TabItem Header="Siatkówka">
-                <Grid Margin="10">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="130"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="10"/>
-                        <RowDefinition Height="70"/>
-                        <RowDefinition Height="70"/>
-                        <RowDefinition Height="70"/>
-                        <RowDefinition Height="32"/>
-                    </Grid.RowDefinitions>
-                    <Button x:Name="scheduleBtn" Content="Terminarz" Margin="10" Grid.Row="1" Click="scheduleBtn_Click"/>
-                    <Button x:Name="teamsBtn" Content="Drużyny" Margin="10" Grid.Row="2" Click="teamsBtn_Click"/>
-                    <Button x:Name="exitBtn" Content="Wyjście" Margin="10.2,4.2,0,-2.2" Grid.Column="1" Grid.Row="4" Click="exitBtn_Click"/>
-                    <Button x:Name="saveBtn" Content="Zapis" Margin="10,4.2,9.8,-2.2" Grid.Row="4" Click="saveBtn_Click" />
-                    <Button x:Name="refereesBtn" Content="Sędziowie" Margin="10" Grid.Row="3"/>
-                    <ListView x:Name="ScoresLV" Grid.RowSpan="3" Grid.Column="1" Margin="10.2,10.4,0,9.8" Grid.Row="1">
-                        <ListView.View>
-                            <GridView>
-                                <GridViewColumn Header="Drużyna" Width="70" DisplayMemberBinding="{Binding Name}" />
-                                <GridViewColumn Header="Punkty" Width="50" DisplayMemberBinding="{Binding Points}" />
-                            </GridView>
-                        </ListView.View>
-                    </ListView>
-                </Grid>
+                <StackPanel VerticalAlignment="Center" Width="150">
+                    <Button x:Name="volleyballScheduleBtn" Content="Terminarz" Grid.Row="1" Click="volleyballScheduleBtn_Click"/>
+                    <Button x:Name="volleyballTeamsBtn" Content="Drużyny" Grid.Row="2" Click="volleyballTeamsBtn_Click"/>
+                    <Button x:Name="volleyballRefereesBtn" Content="Sędziowie" Grid.Row="3" Click="volleyballRefereesBtn_Click"/>
+                </StackPanel>
             </TabItem>
         </TabControl>
     </DockPanel>

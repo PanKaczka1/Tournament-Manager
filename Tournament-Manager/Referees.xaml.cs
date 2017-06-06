@@ -19,9 +19,24 @@ namespace Tournament_Manager
     /// </summary>
     public partial class Referees : Window
     {
-        public Referees()
+        private Tournament tournament;
+
+        public Referees(Tournament t, Disc discipline)
         {
+            this.tournament = t;
             InitializeComponent();
+            switch (discipline)
+            {
+                case Disc.Volleyball:                
+                    RefereesList.ItemsSource = tournament.ContestVolleyball.Referees;
+                    break;
+                case Disc.Dodgeball:
+                    RefereesList.ItemsSource = tournament.ContestDodgeball.Referees;
+                    break;
+                case Disc.RopeDragging:
+                    RefereesList.ItemsSource = tournament.ContestRopeDragging.Referees;
+                    break;
+            }
         }
 
         private void exitBtn_Click(object sender, RoutedEventArgs e)

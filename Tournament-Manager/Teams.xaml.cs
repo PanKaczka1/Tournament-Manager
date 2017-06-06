@@ -22,12 +22,26 @@ namespace Tournament_Manager
     public partial class Teams : Window
     {
         private Tournament tournament;
-        public Teams(Tournament tournament)
+        public Teams(Tournament tournament, Disc discipline)
         {
             this.tournament = tournament;
             InitializeComponent();
-            ObservableCollection<Team> sortedTeams = new ObservableCollection<Team>(tournament.ContestVolleyball.Teams.OrderBy(Team => Team.Points));
-            TeamsList.ItemsSource = sortedTeams;
+            ObservableCollection<Team> sortedTeams;
+            switch (discipline)
+            {
+                case Disc.Volleyball:
+                    sortedTeams = new ObservableCollection<Team>(tournament.ContestVolleyball.Teams.OrderBy(Team => Team.Points));
+                    TeamsList.ItemsSource = sortedTeams;
+                    break;
+                case Disc.Dodgeball:
+                    sortedTeams = new ObservableCollection<Team>(tournament.ContestDodgeball.Teams.OrderBy(Team => Team.Points));
+                    TeamsList.ItemsSource = sortedTeams;
+                    break;
+                case Disc.RopeDragging:
+                    sortedTeams = new ObservableCollection<Team>(tournament.ContestRopeDragging.Teams.OrderBy(Team => Team.Points));
+                    TeamsList.ItemsSource = sortedTeams;
+                    break;
+            }
         }
 
         private void exitBtn_Click(object sender, RoutedEventArgs e)

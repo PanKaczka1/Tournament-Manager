@@ -27,7 +27,6 @@ namespace Tournament_Manager
         {
             this.tournament = t;
             InitializeComponent();
-            ScoresLV.ItemsSource = tournament.ContestVolleyball.Teams;
         }
 
         private void exitBtn_Click(object sender, RoutedEventArgs e)
@@ -35,20 +34,26 @@ namespace Tournament_Manager
             Application.Current.Shutdown();
         }
 
-        private void scheduleBtn_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void teamsBtn_Click(object sender, RoutedEventArgs e)
-        {
-            Teams t = new Teams(tournament);
-            t.Show();
-        }
-
         private void saveBtn_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void volleyballScheduleBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void volleyballTeamsBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Teams t = new Teams(tournament, Disc.Volleyball);
+            t.Show();
+        }
+       
+        private void volleyballRefereesBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Referees r = new Referees(tournament, Disc.Volleyball);
+            r.Show();
         }
     }
 }

@@ -5,16 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tournament_Manager"
         mc:Ignorable="d"
-        Title="Sędziowie" Height="300" Width="300">
-    <Grid>
-        <ListView x:Name="RefereesList" Height="230" VerticalAlignment="Top" Margin="10,10,9.6,0">
+        Title="Sędziowie" Height="300" Width="300" SizeToContent="WidthAndHeight">
+    <DockPanel>
+        <Button x:Name="exitBtn" Content="Zamknij" Click="exitBtn_Click" DockPanel.Dock="Bottom" Width="150" Height="30" Margin="10"/>
+        <ListView x:Name="RefereesList">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Imie" Width="100" DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Header="Imię" Width="100" DisplayMemberBinding="{Binding Name}" />
                     <GridViewColumn Header="Nazwisko" Width="70" DisplayMemberBinding="{Binding Surname}" />
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="exitBtn" Content="Zamknij" Margin="110,245,110.6,0.4" Click="exitBtn_Click"/>
-    </Grid>
+    </DockPanel>
 </Window>
