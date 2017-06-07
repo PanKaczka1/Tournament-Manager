@@ -70,5 +70,9 @@ namespace Tournament_Manager
         {
             return Team1.Name;
         }
+        public override bool Equals(Match match)
+        {
+            return (this.Team1.Name.Equals(match.Team1.Name) && (this.Team2.Name.Equals(match.Team2.Name)));
+        }
     }
 }
