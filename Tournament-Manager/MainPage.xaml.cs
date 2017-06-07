@@ -50,7 +50,8 @@ namespace Tournament_Manager
 
         private void volleyballScheduleBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            Schedule s = new Schedule(tournament, Disc.Volleyball);
+            s.Show();
         }
 
         private void volleyballTeamsBtn_Click(object sender, RoutedEventArgs e)

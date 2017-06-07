@@ -11,21 +11,21 @@ namespace Tournament_Manager
     {
         public RopeDraggingMatch(Team t1, Team t2)
         {
-            team1 = t1;
-            team2 = t2;
+            Team1 = t1;
+            Team2 = t2;
         }
-        public override void Play(int points1, int points2)
+        public override void Play()
         {
-            if (points1 > points2)
+            if (Points1 > Points2)
             {
-                winner = team1;
-                team1.Points += this.WinningPoints();
-                team2.Points += this.LosingPoints();
+                Winner = Team1;
+                Team1.Points += this.WinningPoints();
+                Team2.Points += this.LosingPoints();
             } else
             {
-                winner = team2;
-                team1.Points += this.LosingPoints();
-                team2.Points += this.WinningPoints();
+                Winner = Team2;
+                Team1.Points += this.LosingPoints();
+                Team2.Points += this.WinningPoints();
             }
         }
         public override uint WinningPoints()
