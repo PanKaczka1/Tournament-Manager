@@ -64,6 +64,9 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PlayMatchWindow.xaml.cs">
+      <DependentUpon>PlayMatchWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Referee.cs" />
     <Compile Include="Referees.xaml.cs">
       <DependentUpon>Referees.xaml</DependentUpon>
@@ -100,6 +103,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="NewTournament.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PlayMatchWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
