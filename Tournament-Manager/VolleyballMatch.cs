@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tournament_Manager
 {
+    [Serializable]
     public class VolleyballMatch : Match
     {
         public VolleyballMatch (Team t1, Team t2)

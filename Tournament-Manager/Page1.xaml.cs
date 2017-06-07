@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -34,9 +37,17 @@ namespace Tournament_Manager
 
         private void loadTournamentBtn_Click(object sender, RoutedEventArgs e)
         {
-            Tournament tournament = new Tournament();
-            loadTournament lt = new loadTournament();
-            NavigationService.Navigate(lt);
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == true)
+            {
+                FileStream fs = new FileStream(openFileDialog.FileName, FileMode.Open);
+                BinaryFormatter bf = new BinaryFormatter();
+                Tournament t = (Tournament)bf.Deserialize(fs);
+                fs.Close();
+                MainPage mp = new MainPage(t);
+                NavigationService.Navigate(mp);
+            }
+
         }
 
         private void quitBtn_Click(object sender, RoutedEventArgs e)

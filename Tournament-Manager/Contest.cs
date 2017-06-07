@@ -8,6 +8,7 @@ using System.Threading.Tasks;
     
 namespace Tournament_Manager
 {
+    [Serializable]
     public class Contest
     {
         protected ObservableCollection<Team> teams;

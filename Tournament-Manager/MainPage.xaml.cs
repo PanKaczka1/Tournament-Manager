@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
 using Microsoft.Win32;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Tournament_Manager
 {
@@ -36,7 +37,15 @@ namespace Tournament_Manager
 
         private void saveBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            SaveFileDialog savefile = new SaveFileDialog();
+            savefile.FileName = "xD.dat";
+            if (savefile.ShowDialog() == true)
+            {
+                FileStream fs = new FileStream(savefile.FileName, FileMode.Create);
+                BinaryFormatter bf = new BinaryFormatter();
+                bf.Serialize(fs, tournament);
+                fs.Close();
+            }
         }
 
         private void volleyballScheduleBtn_Click(object sender, RoutedEventArgs e)

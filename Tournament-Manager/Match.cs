@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tournament_Manager
 {
+    [Serializable]
     public abstract class Match
     {
         protected Team team1, team2;

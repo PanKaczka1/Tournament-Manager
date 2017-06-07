@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tournament_Manager
 {
+    [Serializable]
     public class Cup : Stage
     {
         private Match semifinal1;

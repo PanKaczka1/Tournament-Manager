@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Tournament_Manager
 {
+    [Serializable]
     public class League : Stage
     {
         private ObservableCollection<Match> matches;
