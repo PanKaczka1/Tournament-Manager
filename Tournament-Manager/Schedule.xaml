@@ -13,10 +13,12 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
-        <ListView x:Name="ScheduleLV" HorizontalContentAlignment="Center" SelectionMode="Single" SelectionChanged="ScheduleLV_SelectionChanged" >
+        <Label Name="ScheduleLabel" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <ListView x:Name="ScheduleLV" HorizontalContentAlignment="Center" SelectionMode="Single" SelectionChanged="ScheduleLV_SelectionChanged" Grid.Row="1">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Drużyna 1" DisplayMemberBinding="{Binding Team1.Name}"/>
@@ -30,14 +32,15 @@
                     </GridViewColumn>
 
                     <GridViewColumn Header="Drużyna 2" DisplayMemberBinding="{Binding Team2.Name}"/>
+                    <GridViewColumn Header="Opis" DisplayMemberBinding="{Binding Description}"/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <ListView Grid.Column="1" Name="MatchesLV">
+        <ListView Grid.Column="1" Name="MatchesLV" Grid.Row="1">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Drużyna 1" DisplayMemberBinding="{Binding Team1.Name}"/>
-                    <GridViewColumn Width="30" DisplayMemberBinding="{Binding Points1}"/>
+                    <GridViewColumn Width="20" DisplayMemberBinding="{Binding Points1}"/>
                     <GridViewColumn Width="20">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
@@ -45,12 +48,13 @@
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Width="30" DisplayMemberBinding="{Binding Points2}"/>
+                    <GridViewColumn Width="20" DisplayMemberBinding="{Binding Points2}"/>
                     <GridViewColumn Header="Drużyna 2" DisplayMemberBinding="{Binding Team2.Name}"/>
+                    <GridViewColumn Header="Opis" DisplayMemberBinding="{Binding Description}"/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Name="playBtn" Content="Rozegraj mecz" Margin="10,10,10,0" Click="playBtn_Click" Width="150" Height="30" Grid.Row="1" IsEnabled="False"/>
-        <Button Name="exitBtn" Content="Zamknij" Margin="10,10,10,0" Click="exitBtn_Click" Width="150" Grid.Row="1" Grid.Column="1"  Height="30"/>
+        <Button Name="playBtn" Content="Rozegraj mecz" Margin="10,10,10,0" Click="playBtn_Click" Width="150" Height="30" Grid.Row="2" IsEnabled="False"/>
+        <Button Name="exitBtn" Content="Zamknij" Margin="10,10,10,0" Click="exitBtn_Click" Width="150" Grid.Row="2" Grid.Column="1"  Height="30"/>
     </Grid>
 </Window>

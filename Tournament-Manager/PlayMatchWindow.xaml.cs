@@ -23,6 +23,7 @@ namespace Tournament_Manager
         public Match match { get; private set; }
         private ObservableCollection<Referee> referees;
         private Disc discipline;
+
         public PlayMatchWindow(Object match, Disc discipline, ObservableCollection<Referee> refs)
         {
             this.match = match as Match;
@@ -56,28 +57,116 @@ namespace Tournament_Manager
 
         public void saveBtn_Click(object sender, RoutedEventArgs e)
         {
+
             switch(discipline)
             {
                 case Disc.Volleyball:
+                    try
+                    {
+                        AreScoresGood(Disc.Volleyball);
+                    }
+                    catch (InvalidScoreException ex)
+                    {
+                        MessageBox.Show(ex.Message, "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        return;
+                    }
                     Referee[] r = new Referee[3];
                     r[0] = FirstRefereeCB.SelectedItem as Referee;
                     r[1] = SecondRefereeCB.SelectedItem as Referee;
                     r[2] = ThirdRefereeCB.SelectedItem as Referee;
-                    match = new VolleyballMatch(match.Team1, match.Team2,UInt32.Parse((string) FirstTeamScoresCB.SelectedItem), UInt32.Parse((string)SecondTeamScoresCB.SelectedItem), r);
+
+                    match = new VolleyballMatch(match.Team1, match.Team2,UInt32.Parse((string) FirstTeamScoresCB.SelectedItem), UInt32.Parse((string)SecondTeamScoresCB.SelectedItem), r, "");
                     match.Play();
                     break;
                 case Disc.RopeDragging:
-                    match = new RopeDraggingMatch(match.Team1, match.Team2, UInt32.Parse((string)FirstTeamScoresCB.SelectedItem), UInt32.Parse((string)SecondTeamScoresCB.SelectedItem), FirstRefereeCB.SelectedItem as Referee);
+                    try
+                    {
+                        AreScoresGood(Disc.RopeDragging);
+                    }
+                    catch (InvalidScoreException ex)
+                    {
+                        MessageBox.Show(ex.Message, "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        return;
+                    }
+                    match = new RopeDraggingMatch(match.Team1, match.Team2, UInt32.Parse((string)FirstTeamScoresCB.SelectedItem), UInt32.Parse((string)SecondTeamScoresCB.SelectedItem), FirstRefereeCB.SelectedItem as Referee, "");
                     match.Play();
                     break;
                 case Disc.Dodgeball:
-                    match = new DodgeballMatch(match.Team1, match.Team2, UInt32.Parse((string)FirstTeamScoresCB.SelectedItem), UInt32.Parse((string)SecondTeamScoresCB.SelectedItem), FirstRefereeCB.SelectedItem as Referee);
+                    try
+                    {
+                        AreScoresGood(Disc.Dodgeball);
+                    }
+                    catch (InvalidScoreException ex)
+                    {
+                        MessageBox.Show(ex.Message, "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        return;
+                    }
+                    match = new DodgeballMatch(match.Team1, match.Team2, UInt32.Parse((string)FirstTeamScoresCB.SelectedItem), UInt32.Parse((string)SecondTeamScoresCB.SelectedItem), FirstRefereeCB.SelectedItem as Referee, "");
                     match.Play();
                     break;
             }
             this.DialogResult = true;
         }
 
+        private void FirstTeamScoresCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                if ((string)SecondTeamScoresCB.SelectedItem == "3" && (string)FirstTeamScoresCB.SelectedItem == "3")
+                {
+                    throw new InvalidScoreException("Błędny wynik");
+                }
+            }
+            catch (InvalidScoreException ex)
+            {
+                MessageBox.Show(ex.Message, "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
+                FirstTeamScoresCB.SelectedItem = FirstTeamScoresCB.Items[0];
+            }
+        }
 
+        private void SecondTeamScoresCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                if ((string)FirstTeamScoresCB.SelectedItem == "3" && (string)SecondTeamScoresCB.SelectedItem == "3")
+                {
+                    throw new InvalidScoreException("Błędny wynik");
+                }
+            }
+            catch (InvalidScoreException ex)
+            {
+                MessageBox.Show(ex.Message, "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
+                SecondTeamScoresCB.SelectedItem = SecondTeamScoresCB.Items[0];
+            }
+        }
+
+        private void AreScoresGood(Disc discipline)
+        {
+            switch (discipline)
+            {
+                case Disc.Volleyball:
+                    if (!((string)FirstTeamScoresCB.SelectedItem == "3" || (string)SecondTeamScoresCB.SelectedItem == "3"))
+                            throw new InvalidScoreException("Błędny wynik");
+                    break;
+                default:
+                    if (Int32.Parse((string)FirstTeamScoresCB.SelectedItem) + Int32.Parse((string)SecondTeamScoresCB.SelectedItem) != 1)
+                        throw new InvalidScoreException("Błędny wynik");
+                    break;
+            }
+        }
+
+        private void AreRefereesGood(Disc discipline)
+        {
+            switch (discipline)
+            {
+                case Disc.Volleyball:
+
+                    break;
+                default:
+
+                    break;
+            }
+        }
+       
     }
 }
