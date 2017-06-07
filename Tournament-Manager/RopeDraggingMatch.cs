@@ -14,7 +14,7 @@ namespace Tournament_Manager
             Team1 = t1;
             Team2 = t2;
         }
-        public RopeDraggingMatch(Team t1, Team t2, uint p1, uint p2, Referee r)
+        public RopeDraggingMatch(Team t1, Team t2, uint p1, uint p2, Referee r, String desc)
         {
             Team1 = t1;
             Team2 = t2;
@@ -22,6 +22,7 @@ namespace Tournament_Manager
             Points2 = p2;
             referees = new Referee[1];
             this.referees[0] = r;
+            Description = desc;
         }
         public override void Play()
         {

@@ -33,14 +33,17 @@ namespace Tournament_Manager
                 case Disc.Volleyball:
                     ScheduleLV.ItemsSource = tournament.ContestVolleyball.League.Matches;
                     MatchesLV.ItemsSource = tournament.ContestVolleyball.League.PlayedMatches;
+                    ScheduleLabel.Content = "Siatkówka - rozgrywki ligowe";
                     break;
                 case Disc.Dodgeball:
                     ScheduleLV.ItemsSource = tournament.ContestDodgeball.League.Matches;
                     MatchesLV.ItemsSource = tournament.ContestDodgeball.League.PlayedMatches;
+                    ScheduleLabel.Content = "Dwa ognie - rozgrywki ligowe";
                     break;
                 case Disc.RopeDragging:
                     ScheduleLV.ItemsSource = tournament.ContestRopeDragging.League.Matches;
                     MatchesLV.ItemsSource = tournament.ContestRopeDragging.League.PlayedMatches;
+                    ScheduleLabel.Content = "Przeciąganie liny - rozgrywki ligowe";
                     break;
             }
         }
@@ -89,7 +92,10 @@ namespace Tournament_Manager
 
         private void ScheduleLV_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            playBtn.IsEnabled = true;
+            if (ScheduleLV.SelectedItem != null)
+                playBtn.IsEnabled = true;
+            else
+                playBtn.IsEnabled = false;
         }
     }
 }
