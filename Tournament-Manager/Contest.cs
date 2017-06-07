@@ -53,21 +53,27 @@ namespace Tournament_Manager
             teamsAmount = 4;
             this.discipline = discipline;
         }
-        public void generateSemifinals(ObservableCollection<Team> Teams) 
+        public void generateSemifinals() 
         {
             switch (Discipline)
             {
                 case Disc.Volleyball:
-                    cup.Semifinal1 = new VolleyballMatch(Teams[0], Teams[3]);
-                    cup.Semifinal2 = new VolleyballMatch(Teams[1], Teams[2]);
+                    cup.Semifinal1 = new VolleyballMatch(teams[0], teams[3],"Półfinał");
+                    cup.Semifinal2 = new VolleyballMatch(teams[1], teams[2],"Półfinał");
+                    league.Matches.Add(cup.Semifinal1);
+                    league.Matches.Add(cup.Semifinal2);
                     break;
                 case Disc.RopeDragging:
-                    cup.Semifinal2 = new RopeDraggingMatch(Teams[1], Teams[2]);
-                    cup.Semifinal1 = new RopeDraggingMatch(Teams[0], Teams[3]);
+                    cup.Semifinal2 = new RopeDraggingMatch(teams[1], teams[2],"Półfinał");
+                    cup.Semifinal1 = new RopeDraggingMatch(teams[0], teams[3],"Półfinał");
+                    league.Matches.Add(cup.Semifinal1);
+                    league.Matches.Add(cup.Semifinal2);
                     break;
                 case Disc.Dodgeball:
-                    cup.Semifinal1 = new DodgeballMatch(Teams[0], Teams[3]);
-                    cup.Semifinal2 = new DodgeballMatch(Teams[1], Teams[2]);
+                    cup.Semifinal1 = new DodgeballMatch(teams[0], teams[3],"Półfinał");
+                    cup.Semifinal2 = new DodgeballMatch(teams[1], teams[2],"Półfinał");
+                    league.Matches.Add(cup.Semifinal1);
+                    league.Matches.Add(cup.Semifinal2);
                     break;
             }
         }
@@ -77,14 +83,34 @@ namespace Tournament_Manager
             switch (Discipline)
             {
                 case Disc.Volleyball:
-                    cup.Final = new VolleyballMatch(cup.Semifinal1.Winner, cup.Semifinal2.Winner);
+                    cup.Final = new VolleyballMatch(league.PlayedMatches[league.PlayedMatches.Count-1].Winner, league.PlayedMatches[league.PlayedMatches.Count-2].Winner,"Finał");
+                    league.Matches.Add(cup.Final);
                     break;
                 case Disc.RopeDragging:
-                    cup.Final = new RopeDraggingMatch(cup.Semifinal1.Winner, cup.Semifinal2.Winner);
+                    cup.Final = new RopeDraggingMatch(league.PlayedMatches[league.PlayedMatches.Count - 1].Winner, league.PlayedMatches[league.PlayedMatches.Count - 2].Winner, "Finał");
+                    league.Matches.Add(cup.Final);
                     break;
                 case Disc.Dodgeball:
-                    cup.Final = new DodgeballMatch(cup.Semifinal1.Winner, cup.Semifinal2.Winner);
+                    cup.Final = new DodgeballMatch(league.PlayedMatches[league.PlayedMatches.Count - 1].Winner, league.PlayedMatches[league.PlayedMatches.Count - 2].Winner, "Finał");
+                    league.Matches.Add(cup.Final);
                     break;
+            }
+        }
+        public void generateCupStage()
+        {
+            if (League.Matches.Count() == 0)
+            {
+                if (Cup.Semifinal1 == null)
+                {
+                    generateSemifinals();
+                }
+                else
+                {
+                    if (Cup.Final == null)
+                    {
+                        generateFinals();
+                    }
+                }
             }
         }
         public void addTeam(Team team)

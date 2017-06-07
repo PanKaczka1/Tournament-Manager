@@ -14,6 +14,12 @@ namespace Tournament_Manager
             Team1 = t1;
             Team2 = t2;
         }
+        public RopeDraggingMatch(Team t1, Team t2, string description)
+        {
+            Team1 = t1;
+            Team2 = t2;
+            this.Description = description;
+        }
         public RopeDraggingMatch(Team t1, Team t2, uint p1, uint p2, Referee r, String desc)
         {
             Team1 = t1;
@@ -23,6 +29,17 @@ namespace Tournament_Manager
             referees = new Referee[1];
             this.referees[0] = r;
             Description = desc;
+        }
+        public override void PlayCup()
+        {
+            if (Points1 > Points2)
+            {
+                Winner = Team1;
+            }
+            else
+            {
+                Winner = Team2;
+            }
         }
         public override void Play()
         {
