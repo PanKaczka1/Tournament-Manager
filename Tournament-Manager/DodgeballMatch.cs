@@ -6,12 +6,20 @@ using System.Threading.Tasks;
 
 namespace Tournament_Manager
 {
+    [Serializable]
     public class DodgeballMatch : Match
     {
         public DodgeballMatch(Team t1, Team t2)
         {
             Team1 = t1;
             Team2 = t2;
+        }
+        public DodgeballMatch(Team t1, Team t2, uint p1, uint p2)
+        {
+            Team1 = t1;
+            Team2 = t2;
+            Points1 = p1;
+            Points2 = p2;
         }
         public override void Play()
         {
