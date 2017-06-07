@@ -49,15 +49,19 @@ namespace Tournament_Manager
             switch(discipline)
             {
                 case Disc.Volleyball:
-                    pmw = new PlayMatchWindow(ScheduleLV.SelectedItem, Disc.Volleyball);
-                    pmw.Show();
+                    pmw = new PlayMatchWindow(ScheduleLV.SelectedItem, Disc.Volleyball, tournament.ContestVolleyball.Referees);
+                    if (pmw.ShowDialog() == true)
+                    {
+                        tournament.ContestVolleyball.League.PlayedMatches.Add(pmw.match);
+                        tournament.ContestVolleyball.League.Matches.Remove(m);
+                    }
                     break;
                 case Disc.Dodgeball:
-                    pmw = new PlayMatchWindow(ScheduleLV.SelectedItem, Disc.Dodgeball);
+                    pmw = new PlayMatchWindow(ScheduleLV.SelectedItem, Disc.Dodgeball, tournament.ContestDodgeball.Referees);
                     pmw.Show();
                     break;
                 case Disc.RopeDragging:
-                    pmw = new PlayMatchWindow(ScheduleLV.SelectedItem, Disc.RopeDragging);
+                    pmw = new PlayMatchWindow(ScheduleLV.SelectedItem, Disc.RopeDragging, tournament.ContestRopeDragging.Referees);
                     pmw.Show();
                     break;
             }

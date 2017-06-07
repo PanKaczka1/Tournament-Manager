@@ -9,6 +9,8 @@ namespace Tournament_Manager
     [Serializable]
     public class DodgeballMatch : Match
     {
+        Team1.MatchesNo++;
+        Team2.MatchesNo++;
         public DodgeballMatch(Team t1, Team t2)
         {
             Team1 = t1;

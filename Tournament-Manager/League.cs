@@ -15,6 +15,7 @@ namespace Tournament_Manager
         public League()
         {
             matches = new ObservableCollection<Match>();
+            playedMatches = new ObservableCollection<Match>();
         }
         public ObservableCollection<Match> Matches
         {

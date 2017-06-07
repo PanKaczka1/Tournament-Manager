@@ -14,15 +14,18 @@ namespace Tournament_Manager
             Team1 = t1;
             Team2 = t2;
         }
-        public VolleyballMatch(Team t1, Team t2, uint p1, uint p2)
+        public VolleyballMatch(Team t1, Team t2, uint p1, uint p2, Referee[] referees)
         {
             Team1 = t1;
             Team2 = t2;
             Points1 = p1;
             Points2 = p2;
+            this.referees = referees;
         }
         public override void Play()
         {
+            Team1.MatchesNo++;
+            Team2.MatchesNo++;
             if (Points1 > Points2)
             {
                 Winner = Team1;
@@ -49,6 +52,7 @@ namespace Tournament_Manager
                     Team2.Points += WinningPoints();
                 }
             }
+
         }
         public override uint WinningPoints()
         {

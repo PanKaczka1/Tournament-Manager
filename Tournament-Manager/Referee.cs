@@ -12,6 +12,10 @@ namespace Tournament_Manager
         private String name;
         private String surname;
 
+        public String FullName
+        {
+            get { return name + " " + surname; }
+        }
         public String Surname
         {
             get { return surname; }
@@ -34,6 +38,7 @@ namespace Tournament_Manager
             {
                 name = FirstCharToUpper(words[0]);
                 surname = FirstCharToUpper(words[1]);
+
             }
         }
         public static string FirstCharToUpper(string input)

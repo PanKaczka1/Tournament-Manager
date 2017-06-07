@@ -30,15 +30,15 @@ namespace Tournament_Manager
             switch (discipline)
             {
                 case Disc.Volleyball:
-                    sortedTeams = new ObservableCollection<Team>(tournament.ContestVolleyball.Teams.OrderBy(Team => Team.Points));
+                    sortedTeams = new ObservableCollection<Team>(tournament.ContestVolleyball.Teams.OrderByDescending(Team => Team.Points));
                     TeamsList.ItemsSource = sortedTeams;
                     break;
                 case Disc.Dodgeball:
-                    sortedTeams = new ObservableCollection<Team>(tournament.ContestDodgeball.Teams.OrderBy(Team => Team.Points));
+                    sortedTeams = new ObservableCollection<Team>(tournament.ContestDodgeball.Teams.OrderByDescending(Team => Team.Points));
                     TeamsList.ItemsSource = sortedTeams;
                     break;
                 case Disc.RopeDragging:
-                    sortedTeams = new ObservableCollection<Team>(tournament.ContestRopeDragging.Teams.OrderBy(Team => Team.Points));
+                    sortedTeams = new ObservableCollection<Team>(tournament.ContestRopeDragging.Teams.OrderByDescending(Team => Team.Points));
                     TeamsList.ItemsSource = sortedTeams;
                     break;
             }
