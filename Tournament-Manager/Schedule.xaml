@@ -36,7 +36,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <ListView Grid.Column="1" Name="MatchesLV" Grid.Row="1">
+        <ListView Grid.Column="1" Name="MatchesLV" Grid.Row="1" MouseDoubleClick="MatchesLV_MouseDoubleClick">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Drużyna 1" DisplayMemberBinding="{Binding Team1.Name}"/>

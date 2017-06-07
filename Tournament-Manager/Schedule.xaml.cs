@@ -97,5 +97,15 @@ namespace Tournament_Manager
             else
                 playBtn.IsEnabled = false;
         }
+
+        private void MatchesLV_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var item = ((FrameworkElement)e.OriginalSource).DataContext as Match;
+            if (item != null)
+            {
+                DetailsDialog dd = new DetailsDialog(item, discipline);
+                dd.Show();
+            }
+        }
     }
 }

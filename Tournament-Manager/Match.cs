@@ -9,7 +9,7 @@ namespace Tournament_Manager
     [Serializable]
     public abstract class Match : IEquatable<Match>
     {
-        protected Referee[] referees;
+        public Referee[] referees { get; protected set; }
         public Team Team1 { get; protected set; }
         public Team Team2 { get; protected set; }
         public uint Points1 { get; protected set; }

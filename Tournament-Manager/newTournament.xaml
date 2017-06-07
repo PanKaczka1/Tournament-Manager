@@ -37,7 +37,7 @@
                                             <Setter Property="Margin" Value="0,5,0,0" />
                                         </Style>
                                     </StackPanel.Resources>
-                                    <TextBox Name="volleyballTeamsTextBox" AcceptsReturn="False" TextWrapping="NoWrap" Height="20"></TextBox>
+                                    <TextBox Name="volleyballTeamsTextBox" TextWrapping="NoWrap" Height="20"></TextBox>
                                     <Button Name="volleyballAddTeamBtn" Click="volleyballAddTeamBtn_Click">Dodaj drużynę</Button>
                                     <Button Name="volleyballRemoveTeamBtn" Click="volleyballRemoveTeamBtn_Click">Usuń drużynę</Button>
                                     <TextBlock>Pozostało drużyn:</TextBlock>
@@ -60,7 +60,7 @@
                                             <Setter Property="Margin" Value="0,5,0,0" />
                                         </Style>
                                     </StackPanel.Resources>
-                                    <TextBox Name="volleyballRefereesTextBox" AcceptsReturn="True" TextWrapping="NoWrap" Height="20" KeyDown="volleyballRefereesTextBox_KeyDown"></TextBox>
+                                    <TextBox Name="volleyballRefereesTextBox" TextWrapping="NoWrap" Height="20" KeyDown="volleyballRefereesTextBox_KeyDown"></TextBox>
                                     <Button Name="volleyballAddRefereeBtn" Click="volleyballAddRefereeBtn_Click">Dodaj sędziego</Button>
                                     <Button Name="volleyballRemoveRefereeBtn" Click="volleyballRemoveRefereeBtn_Click">Usuń sędziego</Button>
                                 </StackPanel>
@@ -105,7 +105,7 @@
                                             <Setter Property="Margin" Value="0,5,0,0" />
                                         </Style>
                                     </StackPanel.Resources>
-                                    <TextBox Name="dodgeballTeamsTextBox" AcceptsReturn="True" TextWrapping="NoWrap" Height="20"></TextBox>
+                                    <TextBox Name="dodgeballTeamsTextBox" TextWrapping="NoWrap" Height="20"></TextBox>
                                     <Button Name="dodgeballAddTeamBtn" Click="dodgeballAddTeamBtn_Click">Dodaj drużynę</Button>
                                     <Button Name="dodgeballRemoveTeamBtn" HorizontalAlignment="Left" Width="120" Click="dodgeballRemoveTeamBtn_Click">Usuń drużynę</Button>
                                     <TextBlock>Pozostało drużyn:</TextBlock>
@@ -128,7 +128,7 @@
                                             <Setter Property="Margin" Value="0,5,0,0" />
                                         </Style>
                                     </StackPanel.Resources>
-                                    <TextBox Name="dodgeballRefereesTextBox" AcceptsReturn="True" TextWrapping="NoWrap" Height="20" KeyDown="dodgeballRefereesTextBox_KeyDown"></TextBox>
+                                    <TextBox Name="dodgeballRefereesTextBox" TextWrapping="NoWrap" Height="20" KeyDown="dodgeballRefereesTextBox_KeyDown"></TextBox>
                                     <Button Name="dodgeballAddRefereeBtn" Click="dodgeballAddRefereeBtn_Click">Dodaj sędziego</Button>
                                     <Button Name="dodgeballRemoveRefereeBtn" Click="dodgeballRemoveRefereeBtn_Click">Usuń sędziego</Button>
                                 </StackPanel>
@@ -173,7 +173,7 @@
                                             <Setter Property="Margin" Value="0,5,0,0" />
                                         </Style>
                                     </StackPanel.Resources>
-                                    <TextBox Name="ropeDraggingTeamsTextBox" AcceptsReturn="True" TextWrapping="NoWrap" Height="20"></TextBox>
+                                    <TextBox Name="ropeDraggingTeamsTextBox" TextWrapping="NoWrap" Height="20"></TextBox>
                                     <Button Name="ropeDraggingAddTeamBtn" Click="ropeDraggingAddTeamBtn_Click">Dodaj drużynę</Button>
                                     <Button Name="ropeDraggingRemoveTeamBtn" Click="ropeDraggingRemoveTeamBtn_Click">Usuń drużynę</Button>
                                     <TextBlock>Pozostało drużyn:</TextBlock>
@@ -196,7 +196,7 @@
                                             <Setter Property="Margin" Value="0,5,0,0" />
                                         </Style>
                                     </StackPanel.Resources>
-                                    <TextBox Name="ropeDraggingRefereesTextBox" AcceptsReturn="True" TextWrapping="NoWrap" Height="20" KeyDown="ropeDraggingRefereesTextBox_KeyDown"></TextBox>
+                                    <TextBox Name="ropeDraggingRefereesTextBox" TextWrapping="NoWrap" Height="20" KeyDown="ropeDraggingRefereesTextBox_KeyDown"></TextBox>
                                     <Button Name="ropeDraggingAddRefereeBtn" Click="ropeDraggingAddRefereeBtn_Click">Dodaj sędziego</Button>
                                     <Button Name="ropeDraggingRemoveRefereeBtn" Click="ropeDraggingRemoveRefereeBtn_Click">Usuń sędziego</Button>
                                 </StackPanel>

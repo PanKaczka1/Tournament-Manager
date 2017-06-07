@@ -1,0 +1,31 @@
+﻿<Window x:Class="Tournament_Manager.DetailsDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Tournament_Manager"
+        mc:Ignorable="d"
+        Title="Szczegóły" Height="300" Width="300" SizeToContent="WidthAndHeight">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Name="Referee1Label" Content="Sędzia główny:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <Label Name="Referee1Name" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+        <Label Name="Referee2Label" Grid.Row="1" Content="Sędzia pomocniczy:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <Label Name="Referee2Name" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+        <Label Name="Referee3Label" Grid.Row="2" Content="Sędzia techniczny:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <Label Name="Referee3Name" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+        <Button Name="exitBtn" Grid.Row="3" Grid.ColumnSpan="2" Height="30" Width="130" Click="exitBtn_Click">Zamknij</Button>
+    </Grid>
+</Window>

@@ -56,10 +56,14 @@
     </ApplicationDefinition>
     <Compile Include="Contest.cs" />
     <Compile Include="Cup.cs" />
+    <Compile Include="DetailsDialog.xaml.cs">
+      <DependentUpon>DetailsDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DodgeballMatch.cs" />
     <Compile Include="GamePage.xaml.cs">
       <DependentUpon>GamePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="InvalidRefereesException.cs" />
     <Compile Include="InvalidScoreException.cs" />
     <Compile Include="League.cs" />
     <Compile Include="MainPage.xaml.cs">
@@ -85,6 +89,10 @@
     </Compile>
     <Compile Include="Tournament.cs" />
     <Compile Include="VolleyballMatch.cs" />
+    <Page Include="DetailsDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GamePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

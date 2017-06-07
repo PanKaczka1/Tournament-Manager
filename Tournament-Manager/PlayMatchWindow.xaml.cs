@@ -64,8 +64,14 @@ namespace Tournament_Manager
                     try
                     {
                         AreScoresGood(Disc.Volleyball);
+                        AreRefereesGood(Disc.Volleyball);
                     }
                     catch (InvalidScoreException ex)
+                    {
+                        MessageBox.Show(ex.Message, "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        return;
+                    }
+                    catch (InvalidRefereesException ex)
                     {
                         MessageBox.Show(ex.Message, "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
                         return;
@@ -82,8 +88,14 @@ namespace Tournament_Manager
                     try
                     {
                         AreScoresGood(Disc.RopeDragging);
+                        AreRefereesGood(Disc.RopeDragging);
                     }
                     catch (InvalidScoreException ex)
+                    {
+                        MessageBox.Show(ex.Message, "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        return;
+                    }
+                    catch (InvalidRefereesException ex)
                     {
                         MessageBox.Show(ex.Message, "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
                         return;
@@ -95,8 +107,14 @@ namespace Tournament_Manager
                     try
                     {
                         AreScoresGood(Disc.Dodgeball);
+                        AreRefereesGood(Disc.Dodgeball);
                     }
                     catch (InvalidScoreException ex)
+                    {
+                        MessageBox.Show(ex.Message, "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        return;
+                    }
+                    catch (InvalidRefereesException ex)
                     {
                         MessageBox.Show(ex.Message, "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
                         return;
@@ -160,10 +178,14 @@ namespace Tournament_Manager
             switch (discipline)
             {
                 case Disc.Volleyball:
-
+                    if (FirstRefereeCB.SelectedItem == null || SecondRefereeCB.SelectedItem == null || ThirdRefereeCB.SelectedItem == null)
+                        throw new InvalidRefereesException("Nie podano wszystkich sędziów");
+                    if (FirstRefereeCB.SelectedItem == SecondRefereeCB.SelectedItem || FirstRefereeCB.SelectedItem == ThirdRefereeCB.SelectedItem || SecondRefereeCB.SelectedItem == ThirdRefereeCB.SelectedItem)
+                        throw new InvalidRefereesException("Sędziowie nie mogą się powtarzać");
                     break;
                 default:
-
+                    if (FirstRefereeCB.SelectedItem == null)
+                        throw new InvalidRefereesException("Nie podano sędziego");
                     break;
             }
         }
