@@ -79,7 +79,18 @@ namespace Tournament_Manager
                     }
                     break;
             }
-
+            switch(discipline)
+            {
+                case Disc.Volleyball:
+                    tournament.ContestVolleyball.generateCupStage();
+                    break;
+                case Disc.RopeDragging:
+                    tournament.ContestRopeDragging.generateCupStage();
+                    break;
+                case Disc.Dodgeball:
+                    tournament.ContestDodgeball.generateCupStage();
+                    break;
+            }
         }
 
         private void exitBtn_Click(object sender, RoutedEventArgs e)

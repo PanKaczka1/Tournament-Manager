@@ -16,7 +16,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
-        <ListView x:Name="ScheduleLV" HorizontalContentAlignment="Center" SelectionMode="Single" SelectionChanged="ScheduleLV_SelectionChanged">
+        <ListView x:Name="ScheduleLV" HorizontalContentAlignment="Center" SelectionMode="Single" SelectionChanged="ScheduleLV_SelectionChanged" >
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Drużyna 1" DisplayMemberBinding="{Binding Team1.Name}"/>
