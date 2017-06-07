@@ -25,13 +25,5 @@ namespace Tournament_Manager
         {
             get { return playedMatches; }
         }
-        public override void printScores()
-        {
-
-        }
-        public override void printSchedule()
-        {
-
-        }
     }
 }

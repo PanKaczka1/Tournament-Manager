@@ -35,19 +35,5 @@ namespace Tournament_Manager
         {
             get { return contestDodgeball; }
         }
-        public void saveState(string filename)
-        {
-            FileStream fs = new FileStream(filename, FileMode.Create);
-            BinaryFormatter bf = new BinaryFormatter();
-            bf.Serialize(fs, this);
-            fs.Close();
-        }
-        public void loadState(string filename)
-        {
-            FileStream fs = new FileStream(filename, FileMode.Open);
-            BinaryFormatter bf = new BinaryFormatter();
-            bf.Deserialize(fs);
-            fs.Close();
-        }
     }
 }

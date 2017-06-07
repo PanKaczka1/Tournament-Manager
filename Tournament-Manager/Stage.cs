@@ -10,7 +10,6 @@ namespace Tournament_Manager
     [Serializable]
     public abstract class Stage
     {
-        public abstract void printScores();
-        public abstract void printSchedule();
+
     }
 }
