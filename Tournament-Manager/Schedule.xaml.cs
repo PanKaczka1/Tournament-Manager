@@ -86,12 +86,18 @@ namespace Tournament_Manager
             {
                 case Disc.Volleyball:
                     tournament.ContestVolleyball.generateCupStage();
+                    if (tournament.ContestVolleyball.Cup.Semifinal1 != null)
+                        ScheduleLabel.Content = "Siatkówka - rozgrywki pucharowe";
                     break;
                 case Disc.RopeDragging:
                     tournament.ContestRopeDragging.generateCupStage();
+                    if (tournament.ContestRopeDragging.Cup.Semifinal1 != null)
+                        ScheduleLabel.Content = "Przeciąganie liny - rozgrywki pucharowe";
                     break;
                 case Disc.Dodgeball:
                     tournament.ContestDodgeball.generateCupStage();
+                    if (tournament.ContestDodgeball.Cup.Semifinal1 != null)
+                        ScheduleLabel.Content = "Dwa ognie - rozgrywki pucharowe";
                     break;
             }
         }

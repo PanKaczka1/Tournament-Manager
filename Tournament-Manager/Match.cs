@@ -18,6 +18,7 @@ namespace Tournament_Manager
         public String Description { get; protected set; }
 
         public abstract void Play();
+        public abstract void PlayCup();
         public abstract uint WinningPoints();
         public abstract uint LosingPoints();
         public abstract bool Equals(Match match);
