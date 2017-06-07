@@ -38,7 +38,7 @@ namespace Tournament_Manager
         private void saveBtn_Click(object sender, RoutedEventArgs e)
         {
             SaveFileDialog savefile = new SaveFileDialog();
-            savefile.FileName = "xD.dat";
+            savefile.FileName = "";
             if (savefile.ShowDialog() == true)
             {
                 FileStream fs = new FileStream(savefile.FileName, FileMode.Create);

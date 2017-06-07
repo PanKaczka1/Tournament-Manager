@@ -21,9 +21,9 @@ namespace Tournament_Manager
     /// <summary>
     /// Interaction logic for Page1.xaml
     /// </summary>
-    public partial class Page1 : Page
+    public partial class StartPage : Page
     {
-        public Page1()
+        public StartPage()
         {
             InitializeComponent();
         }
@@ -38,7 +38,7 @@ namespace Tournament_Manager
         private void loadTournamentBtn_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            if (openFileDialog.ShowDialog() == true)
+            if (openFileDialog.ShowDialog() == true) 
             {
                 FileStream fs = new FileStream(openFileDialog.FileName, FileMode.Open);
                 BinaryFormatter bf = new BinaryFormatter();

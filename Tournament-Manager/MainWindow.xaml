@@ -7,6 +7,6 @@
         mc:Ignorable="d"
         Title="Menedżer turniejów" Height="350" Width="525" ResizeMode="NoResize">
     <DockPanel>
-        <Frame Name="mainFrame" Source="Page1.xaml" NavigationUIVisibility="Hidden"></Frame>
+        <Frame Name="mainFrame" Source="StartPage.xaml" NavigationUIVisibility="Hidden"></Frame>
     </DockPanel>
 </Window>
