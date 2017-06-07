@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using csUnit;
 
 namespace Tournament_Manager
 {
@@ -42,10 +43,9 @@ namespace Tournament_Manager
 
             }
         }
+
         public static string FirstCharToUpper(string input)
         {
-            if (String.IsNullOrEmpty(input))
-                throw new ArgumentException("ARGH!");
             return input.First().ToString().ToUpper() + input.Substring(1).ToLower();
         }
     }
