@@ -53,30 +53,27 @@ namespace Tournament_Manager
             teamsAmount = 4;
             this.discipline = discipline;
         }
-        public void generateSemifinals()
+        public void generateSemifinals(ObservableCollection<Team> Teams) 
         {
-            List<Team> SortedList = teams.OrderByDescending(o => o.Points).ToList();
-            Random rnd = new Random();
             switch (Discipline)
             {
                 case Disc.Volleyball:
-                    cup.Semifinal1 = new VolleyballMatch(teams[0], teams[3]);
-                    cup.Semifinal2 = new VolleyballMatch(teams[1], teams[2]);
+                    cup.Semifinal1 = new VolleyballMatch(Teams[0], Teams[3]);
+                    cup.Semifinal2 = new VolleyballMatch(Teams[1], Teams[2]);
                     break;
                 case Disc.RopeDragging:
-                    cup.Semifinal1 = new RopeDraggingMatch(teams[0], teams[3]);
-                    cup.Semifinal2 = new RopeDraggingMatch(teams[1], teams[2]);
+                    cup.Semifinal2 = new RopeDraggingMatch(Teams[1], Teams[2]);
+                    cup.Semifinal1 = new RopeDraggingMatch(Teams[0], Teams[3]);
                     break;
                 case Disc.Dodgeball:
-                    cup.Semifinal1 = new DodgeballMatch(teams[0], teams[3]);
-                    cup.Semifinal2 = new DodgeballMatch(teams[1], teams[2]);
+                    cup.Semifinal1 = new DodgeballMatch(Teams[0], Teams[3]);
+                    cup.Semifinal2 = new DodgeballMatch(Teams[1], Teams[2]);
                     break;
             }
         }
 
         public void generateFinals()
         {
-            Random rnd = new Random();
             switch (Discipline)
             {
                 case Disc.Volleyball:
@@ -89,10 +86,6 @@ namespace Tournament_Manager
                     cup.Final = new DodgeballMatch(cup.Semifinal1.Winner, cup.Semifinal2.Winner);
                     break;
             }
-        }
-        public void generateMatch(Team t1, Team t2)
-        {
-
         }
         public void addTeam(Team team)
         {

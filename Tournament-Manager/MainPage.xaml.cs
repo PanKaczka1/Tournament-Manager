@@ -65,5 +65,42 @@ namespace Tournament_Manager
             Referees r = new Referees(tournament, Disc.Volleyball);
             r.Show();
         }
+
+        private void dodgeballScheduleBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Schedule s = new Schedule(tournament, Disc.Dodgeball);
+            s.Show();
+        }
+
+        private void dodgeballTeamsBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Teams t = new Teams(tournament, Disc.Dodgeball);
+            t.Show();
+        }
+
+        private void dodgeballRefereesBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Referees r = new Referees(tournament, Disc.Dodgeball);
+            r.Show()
+        }
+
+        private void ropedraggingRefereesBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Referees r = new Referees(tournament, Disc.RopeDragging);
+            r.Show()
+        }
+
+        private void ropedraggingTeamsBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Teams t = new Teams(tournament, Disc.RopeDragging);
+            t.Show();
+        }
+
+        private void ropedraggingScheduleBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Schedule s = new Schedule(tournament, Disc.RopeDragging);
+            s.Show();
+
+        }
     }
 }
