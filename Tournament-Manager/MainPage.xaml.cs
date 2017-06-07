@@ -81,13 +81,13 @@ namespace Tournament_Manager
         private void dodgeballRefereesBtn_Click(object sender, RoutedEventArgs e)
         {
             Referees r = new Referees(tournament, Disc.Dodgeball);
-            r.Show()
+            r.Show();
         }
 
         private void ropedraggingRefereesBtn_Click(object sender, RoutedEventArgs e)
         {
             Referees r = new Referees(tournament, Disc.RopeDragging);
-            r.Show()
+            r.Show();
         }
 
         private void ropedraggingTeamsBtn_Click(object sender, RoutedEventArgs e)

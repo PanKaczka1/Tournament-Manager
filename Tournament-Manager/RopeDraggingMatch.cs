@@ -14,12 +14,14 @@ namespace Tournament_Manager
             Team1 = t1;
             Team2 = t2;
         }
-        public RopeDraggingMatch(Team t1, Team t2, uint p1, uint p2)
+        public RopeDraggingMatch(Team t1, Team t2, uint p1, uint p2, Referee r)
         {
             Team1 = t1;
             Team2 = t2;
             Points1 = p1;
             Points2 = p2;
+            referees = new Referee[1];
+            this.referees[0] = r;
         }
         public override void Play()
         {

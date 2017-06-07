@@ -66,6 +66,14 @@ namespace Tournament_Manager
                     match = new VolleyballMatch(match.Team1, match.Team2,UInt32.Parse((string) FirstTeamScoresCB.SelectedItem), UInt32.Parse((string)SecondTeamScoresCB.SelectedItem), r);
                     match.Play();
                     break;
+                case Disc.RopeDragging:
+                    match = new RopeDraggingMatch(match.Team1, match.Team2, UInt32.Parse((string)FirstTeamScoresCB.SelectedItem), UInt32.Parse((string)SecondTeamScoresCB.SelectedItem), FirstRefereeCB.SelectedItem as Referee);
+                    match.Play();
+                    break;
+                case Disc.Dodgeball:
+                    match = new DodgeballMatch(match.Team1, match.Team2, UInt32.Parse((string)FirstTeamScoresCB.SelectedItem), UInt32.Parse((string)SecondTeamScoresCB.SelectedItem), FirstRefereeCB.SelectedItem as Referee);
+                    match.Play();
+                    break;
             }
             this.DialogResult = true;
         }

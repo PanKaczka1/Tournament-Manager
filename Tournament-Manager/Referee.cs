@@ -31,6 +31,7 @@ namespace Tournament_Manager
         {
             input = input.Trim();
             String[] words = input.Split(' ');
+
             if (words.Length != 2)
             {
                 throw new ArgumentException("Prawidłowy format danych sędziego: imię + nazwisko");

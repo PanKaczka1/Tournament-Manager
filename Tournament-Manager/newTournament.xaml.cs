@@ -79,9 +79,9 @@ namespace Tournament_Manager
             String trimmed = volleyballRefereesTextBox.Text.Trim();
             if (trimmed != "")
             {
-                Referee r = new Referee(volleyballRefereesTextBox.Text);
                 try
                 {
+                    Referee r = new Referee(volleyballRefereesTextBox.Text);
                     foreach (Referee o in tournament.ContestVolleyball.Referees)
                         if (o.Name.Equals(r.Name) && o.Surname.Equals(r.Surname))
                             throw new ArgumentException("W systemie już istnieje sędzia o podanych danych");

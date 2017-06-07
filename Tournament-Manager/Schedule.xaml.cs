@@ -58,16 +58,25 @@ namespace Tournament_Manager
                         Match tmp = pmw.match;
                         tournament.ContestVolleyball.League.PlayedMatches.Add(tmp);
                         tournament.ContestVolleyball.League.Matches.Remove(tmp);
-
                     }
                     break;
                 case Disc.Dodgeball:
                     pmw = new PlayMatchWindow(ScheduleLV.SelectedItem, Disc.Dodgeball, tournament.ContestDodgeball.Referees);
-                    pmw.Show();
+                    if (pmw.ShowDialog() == true)
+                    {
+                        Match tmp = pmw.match;
+                        tournament.ContestDodgeball.League.PlayedMatches.Add(tmp);
+                        tournament.ContestDodgeball.League.Matches.Remove(tmp);
+                    }
                     break;
                 case Disc.RopeDragging:
                     pmw = new PlayMatchWindow(ScheduleLV.SelectedItem, Disc.RopeDragging, tournament.ContestRopeDragging.Referees);
-                    pmw.Show();
+                    if (pmw.ShowDialog() == true)
+                    {
+                        Match tmp = pmw.match;
+                        tournament.ContestRopeDragging.League.PlayedMatches.Add(tmp);
+                        tournament.ContestRopeDragging.League.Matches.Remove(tmp);
+                    }
                     break;
             }
 
