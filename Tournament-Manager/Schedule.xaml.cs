@@ -32,12 +32,15 @@ namespace Tournament_Manager
             {
                 case Disc.Volleyball:
                     ScheduleLV.ItemsSource = tournament.ContestVolleyball.League.Matches;
+                    MatchesLV.ItemsSource = tournament.ContestVolleyball.League.PlayedMatches;
                     break;
                 case Disc.Dodgeball:
                     ScheduleLV.ItemsSource = tournament.ContestDodgeball.League.Matches;
+                    MatchesLV.ItemsSource = tournament.ContestDodgeball.League.PlayedMatches;
                     break;
                 case Disc.RopeDragging:
                     ScheduleLV.ItemsSource = tournament.ContestRopeDragging.League.Matches;
+                    MatchesLV.ItemsSource = tournament.ContestRopeDragging.League.PlayedMatches;
                     break;
             }
         }
@@ -52,8 +55,10 @@ namespace Tournament_Manager
                     pmw = new PlayMatchWindow(ScheduleLV.SelectedItem, Disc.Volleyball, tournament.ContestVolleyball.Referees);
                     if (pmw.ShowDialog() == true)
                     {
-                        tournament.ContestVolleyball.League.PlayedMatches.Add(pmw.match);
-                        tournament.ContestVolleyball.League.Matches.Remove(m);
+                        Match tmp = pmw.match;
+                        tournament.ContestVolleyball.League.PlayedMatches.Add(tmp);
+                        tournament.ContestVolleyball.League.Matches.Remove(tmp);
+
                     }
                     break;
                 case Disc.Dodgeball:

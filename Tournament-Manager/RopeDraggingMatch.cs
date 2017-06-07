@@ -9,8 +9,6 @@ namespace Tournament_Manager
     [Serializable]
     public class RopeDraggingMatch : Match
     {
-        Team1.MatchesNo++;
-        Team2.MatchesNo++;
         public RopeDraggingMatch(Team t1, Team t2)
         {
             Team1 = t1;
@@ -25,6 +23,8 @@ namespace Tournament_Manager
         }
         public override void Play()
         {
+            Team1.MatchesNo++;
+            Team2.MatchesNo++;
             if (Points1 > Points2)
             {
                 Winner = Team1;

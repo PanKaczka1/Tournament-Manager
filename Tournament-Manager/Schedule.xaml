@@ -36,8 +36,8 @@
         <ListView Grid.Column="1" Name="MatchesLV">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Drużyna 1" DisplayMemberBinding="{Binding Team1}"/>
-                    <GridViewColumn Width="20" DisplayMemberBinding="{Binding Points1}"/>
+                    <GridViewColumn Header="Drużyna 1" DisplayMemberBinding="{Binding Team1.Name}"/>
+                    <GridViewColumn Width="30" DisplayMemberBinding="{Binding Points1}"/>
                     <GridViewColumn Width="20">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
@@ -45,8 +45,8 @@
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Width="20" DisplayMemberBinding="{Binding Points2}"/>
-                    <GridViewColumn Header="Drużyna 2" DisplayMemberBinding="{Binding Team2}"/>
+                    <GridViewColumn Width="30" DisplayMemberBinding="{Binding Points2}"/>
+                    <GridViewColumn Header="Drużyna 2" DisplayMemberBinding="{Binding Team2.Name}"/>
                 </GridView>
             </ListView.View>
         </ListView>

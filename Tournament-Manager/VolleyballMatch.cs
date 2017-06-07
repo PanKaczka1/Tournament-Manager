@@ -11,11 +11,15 @@ namespace Tournament_Manager
     {
         public VolleyballMatch (Team t1, Team t2)
         {
+            Id = Counter;
+            Counter++;
             Team1 = t1;
             Team2 = t2;
         }
         public VolleyballMatch(Team t1, Team t2, uint p1, uint p2, Referee[] referees)
         {
+            Id = Counter;
+            Counter++;
             Team1 = t1;
             Team2 = t2;
             Points1 = p1;

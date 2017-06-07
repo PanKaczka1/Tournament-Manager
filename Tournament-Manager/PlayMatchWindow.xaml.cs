@@ -68,7 +68,6 @@ namespace Tournament_Manager
                     break;
             }
             this.DialogResult = true;
-           //this.Close();
         }
 
 
