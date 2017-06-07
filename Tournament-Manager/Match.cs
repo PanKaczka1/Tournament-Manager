@@ -8,16 +8,14 @@ namespace Tournament_Manager
 {
     public abstract class Match
     {
-        protected Team team1, team2;
-        protected Team winner;
-        public Team Winner
-        {
-            get { return winner; }
-            set { winner = value; }
-        }
+        public Team Team1 { get; set; }
+        public Team Team2 { get; set; }
+        protected uint Points1 { get; set; }
+        protected uint Points2 { get; set; }
         protected Referee[] referees;
+        public Team Winner { get; set; }
 
-        public abstract void Play(int points1, int points2);
+        public abstract void Play();
         public abstract uint WinningPoints();
         public abstract uint LosingPoints();
     }

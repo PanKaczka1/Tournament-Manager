@@ -69,6 +69,9 @@
       <DependentUpon>Referees.xaml</DependentUpon>
     </Compile>
     <Compile Include="RopeDraggingMatch.cs" />
+    <Compile Include="Schedule.xaml.cs">
+      <DependentUpon>Schedule.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Stage.cs" />
     <Compile Include="Team.cs" />
     <Compile Include="Teams.xaml.cs">
@@ -112,6 +115,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Referees.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Schedule.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

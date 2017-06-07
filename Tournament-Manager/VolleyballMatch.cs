@@ -10,35 +10,35 @@ namespace Tournament_Manager
     {
         public VolleyballMatch (Team t1, Team t2)
         {
-            team1 = t1;
-            team2 = t2;
+            Team1 = t1;
+            Team2 = t2;
         }
-        public override void Play(int points1, int points2)
+        public override void Play()
         {
-            if (points1 > points2)
+            if (Points1 > Points2)
             {
-                winner = team1;
-                if (points2 == 2)
+                Winner = Team1;
+                if (Points2 == 2)
                 {
-                    team1.Points += 2;
-                    team2.Points += 1;
+                    Team1.Points += 2;
+                    Team2.Points += 1;
                 } else
                 {
-                    team1.Points += WinningPoints();
-                    team2.Points += LosingPoints();
+                    Team1.Points += WinningPoints();
+                    Team2.Points += LosingPoints();
                 }
             } else
             {
-                winner = team2;
-                if (points1 == 2)
+                Winner = Team2;
+                if (Points1 == 2)
                 {
-                    team1.Points += 1;
-                    team2.Points += 2;
+                    Team1.Points += 1;
+                    Team2.Points += 2;
                 }
                 else
                 {
-                    team1.Points += LosingPoints();
-                    team2.Points += WinningPoints();
+                    Team1.Points += LosingPoints();
+                    Team2.Points += WinningPoints();
                 }
             }
         }
@@ -50,6 +50,9 @@ namespace Tournament_Manager
         {
             return 0;
         }
-        
+        public String getName1()
+        {
+            return Team1.Name;
+        }
     }
 }
