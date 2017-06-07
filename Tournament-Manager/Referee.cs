@@ -33,7 +33,7 @@ namespace Tournament_Manager
             String[] words = input.Split(' ');
             if (words.Length != 2)
             {
-                throw new NotImplementedException(); //TODO
+                throw new ArgumentException("Prawidłowy format danych sędziego: imię + nazwisko");
             } else
             {
                 name = FirstCharToUpper(words[0]);

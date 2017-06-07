@@ -64,6 +64,8 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="NotEnoughRefereesException.cs" />
+    <Compile Include="NotEnoughTeamsException.cs" />
     <Compile Include="PlayMatchWindow.xaml.cs">
       <DependentUpon>PlayMatchWindow.xaml</DependentUpon>
     </Compile>

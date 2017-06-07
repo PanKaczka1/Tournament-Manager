@@ -50,9 +50,17 @@ namespace Tournament_Manager
             if (trimmed != "" && tournament.ContestVolleyball.Teams.Count() < tournament.ContestVolleyball.TeamsAmount)
             {
                 Team t = new Team(volleyballTeamsTextBox.Text);
-                foreach(Team o in tournament.ContestVolleyball.Teams)
-                    if (o.Name.Equals(t.Name))
-                        throw new NotImplementedException();
+                try
+                {
+                    foreach(Team o in tournament.ContestVolleyball.Teams)
+                        if (o.Name.Equals(t.Name))
+                            throw new ArgumentException("Nazwy drużyn nie mogą się powtarzać");
+                }
+                catch (ArgumentException ex)
+                {
+                    MessageBox.Show(ex.Message, "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
 
                 tournament.ContestVolleyball.addTeam(t);
                 volleyballTeamsLeftLabel.Content = tournament.ContestVolleyball.TeamsAmount - tournament.ContestVolleyball.Teams.Count();
@@ -72,11 +80,19 @@ namespace Tournament_Manager
             if (trimmed != "")
             {
                 Referee r = new Referee(volleyballRefereesTextBox.Text);
-                foreach (Referee o in tournament.ContestVolleyball.Referees)
-                    if (o.Name.Equals(r.Name) && o.Surname.Equals(r.Surname))
-                        throw new NotImplementedException();
+                try
+                {
+                    foreach (Referee o in tournament.ContestVolleyball.Referees)
+                        if (o.Name.Equals(r.Name) && o.Surname.Equals(r.Surname))
+                            throw new ArgumentException("W systemie już istnieje sędzia o podanych danych");
+                    tournament.ContestVolleyball.addReferee(r);
+                }
+                catch (ArgumentException ex)
+                {
+                    MessageBox.Show(ex.Message, "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
 
-                tournament.ContestVolleyball.addReferee(r);
                 volleyballRefereesTextBox.Text = "";
             }
         }
@@ -224,9 +240,10 @@ namespace Tournament_Manager
             {
                 CheckInputs();
             }
-            catch
+            catch (Exception ex)
             {
-                //TODO
+                MessageBox.Show(ex.Message, "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
             }
             for (int i = 0; i < tournament.ContestVolleyball.Teams.Count - 1; i++)
             {
@@ -260,19 +277,19 @@ namespace Tournament_Manager
         private void CheckInputs()
         {
             if (tournament.ContestVolleyball.Teams.Count < tournament.ContestVolleyball.TeamsAmount)
-                throw new NotImplementedException();
+                throw new NotEnoughTeamsException("Siatkówka - podano za mało drużyn");
             if (tournament.ContestVolleyball.Referees.Count() < 3)
-                throw new NotImplementedException();
+                throw new NotEnoughRefereesException("Siatkówka - podano za mało sędziów");
 
             if (tournament.ContestDodgeball.Teams.Count < tournament.ContestDodgeball.TeamsAmount)
-                throw new NotImplementedException();
+                throw new NotEnoughTeamsException("Dwa ognie - podano za mało drużyn");
             if (tournament.ContestDodgeball.Referees.Count() < 1)
-                throw new NotImplementedException();
+                throw new NotImplementedException("Dwa ognie - podano za mało sędziów");
 
             if (tournament.ContestRopeDragging.Teams.Count < tournament.ContestRopeDragging.TeamsAmount)
-                throw new NotImplementedException();
+                throw new NotEnoughTeamsException("Przeciąganie liny - podano za mało drużyn");
             if (tournament.ContestRopeDragging.Referees.Count() < 1)
-                throw new NotImplementedException();
+                throw new NotImplementedException("Przeciąganie liny - podano za mało sędziów");
         }
     }
 }
