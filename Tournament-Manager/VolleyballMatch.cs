@@ -14,6 +14,13 @@ namespace Tournament_Manager
             Team1 = t1;
             Team2 = t2;
         }
+        public VolleyballMatch(Team t1, Team t2, uint p1, uint p2)
+        {
+            Team1 = t1;
+            Team2 = t2;
+            Points1 = p1;
+            Points2 = p2;
+        }
         public override void Play()
         {
             if (Points1 > Points2)

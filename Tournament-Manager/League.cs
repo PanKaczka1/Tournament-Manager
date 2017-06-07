@@ -11,6 +11,7 @@ namespace Tournament_Manager
     public class League : Stage
     {
         private ObservableCollection<Match> matches;
+        private ObservableCollection<Match> playedMatches;
         public League()
         {
             matches = new ObservableCollection<Match>();
@@ -18,6 +19,10 @@ namespace Tournament_Manager
         public ObservableCollection<Match> Matches
         {
             get { return matches; }
+        }
+        public ObservableCollection<Match> PlayedMatches
+        {
+            get { return playedMatches; }
         }
         public override void printScores()
         {
