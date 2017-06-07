@@ -81,8 +81,21 @@ namespace Tournament_Manager
                     r[1] = SecondRefereeCB.SelectedItem as Referee;
                     r[2] = ThirdRefereeCB.SelectedItem as Referee;
 
-                    match = new VolleyballMatch(match.Team1, match.Team2,UInt32.Parse((string) FirstTeamScoresCB.SelectedItem), UInt32.Parse((string)SecondTeamScoresCB.SelectedItem), r, "");
-                    match.Play();
+                    switch (match.Description)
+                    {
+                        case "Półfinał":
+                            match = new VolleyballMatch(match.Team1, match.Team2, UInt32.Parse((string)FirstTeamScoresCB.SelectedItem), UInt32.Parse((string)SecondTeamScoresCB.SelectedItem), r, "Półfinał");
+                            match.PlayCup();
+                            break;
+                        case null:
+                            match = new VolleyballMatch(match.Team1, match.Team2, UInt32.Parse((string)FirstTeamScoresCB.SelectedItem), UInt32.Parse((string)SecondTeamScoresCB.SelectedItem), r, "");
+                            match.Play();
+                            break;
+                        case "Finał":
+                            match = new VolleyballMatch(match.Team1, match.Team2, UInt32.Parse((string)FirstTeamScoresCB.SelectedItem), UInt32.Parse((string)SecondTeamScoresCB.SelectedItem), r, "Finał");
+                            match.PlayCup();
+                            break;
+                    }
                     break;
                 case Disc.RopeDragging:
                     try
@@ -100,8 +113,21 @@ namespace Tournament_Manager
                         MessageBox.Show(ex.Message, "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
                         return;
                     }
-                    match = new RopeDraggingMatch(match.Team1, match.Team2, UInt32.Parse((string)FirstTeamScoresCB.SelectedItem), UInt32.Parse((string)SecondTeamScoresCB.SelectedItem), FirstRefereeCB.SelectedItem as Referee, "");
-                    match.Play();
+                    switch (match.Description)
+                    {
+                        case "Półfinał":
+                            match = new RopeDraggingMatch(match.Team1, match.Team2, UInt32.Parse((string)FirstTeamScoresCB.SelectedItem), UInt32.Parse((string)SecondTeamScoresCB.SelectedItem), FirstRefereeCB.SelectedItem as Referee, "Półfinał");
+                            match.PlayCup();
+                            break;
+                        case null:
+                            match = new RopeDraggingMatch(match.Team1, match.Team2, UInt32.Parse((string)FirstTeamScoresCB.SelectedItem), UInt32.Parse((string)SecondTeamScoresCB.SelectedItem), FirstRefereeCB.SelectedItem as Referee, "");
+                            match.Play();
+                            break;
+                        case "Finał":
+                            match = new RopeDraggingMatch(match.Team1, match.Team2, UInt32.Parse((string)FirstTeamScoresCB.SelectedItem), UInt32.Parse((string)SecondTeamScoresCB.SelectedItem), FirstRefereeCB.SelectedItem as Referee, "Finał");
+                            match.PlayCup();
+                            break;
+                    }
                     break;
                 case Disc.Dodgeball:
                     try
@@ -119,8 +145,21 @@ namespace Tournament_Manager
                         MessageBox.Show(ex.Message, "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
                         return;
                     }
-                    match = new DodgeballMatch(match.Team1, match.Team2, UInt32.Parse((string)FirstTeamScoresCB.SelectedItem), UInt32.Parse((string)SecondTeamScoresCB.SelectedItem), FirstRefereeCB.SelectedItem as Referee, "");
-                    match.Play();
+                    switch (match.Description)
+                    {
+                        case "Półfinał":
+                            match = new DodgeballMatch(match.Team1, match.Team2, UInt32.Parse((string)FirstTeamScoresCB.SelectedItem), UInt32.Parse((string)SecondTeamScoresCB.SelectedItem), FirstRefereeCB.SelectedItem as Referee, "Półfinał");
+                            match.PlayCup();
+                            break;
+                        case null:
+                            match = new DodgeballMatch(match.Team1, match.Team2, UInt32.Parse((string)FirstTeamScoresCB.SelectedItem), UInt32.Parse((string)SecondTeamScoresCB.SelectedItem), FirstRefereeCB.SelectedItem as Referee, "");
+                            match.Play();
+                            break;
+                        case "Finał":
+                            match = new DodgeballMatch(match.Team1, match.Team2, UInt32.Parse((string)FirstTeamScoresCB.SelectedItem), UInt32.Parse((string)SecondTeamScoresCB.SelectedItem), FirstRefereeCB.SelectedItem as Referee, "Finał");
+                            match.PlayCup();
+                            break;
+                    }
                     break;
             }
             this.DialogResult = true;
