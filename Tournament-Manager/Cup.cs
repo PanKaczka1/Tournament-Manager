@@ -27,13 +27,5 @@ namespace Tournament_Manager
             get { return final; }
             set { final = value; }
         }
-        public override void printScores()
-        {
-
-        }
-        public override void printSchedule()
-        {
-
-        }
     }
 }
