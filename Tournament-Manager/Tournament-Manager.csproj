@@ -116,9 +116,6 @@
       <DependentUpon>DetailsDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="DodgeballMatch.cs" />
-    <Compile Include="Pages\GamePage.xaml.cs">
-      <DependentUpon>GamePage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Exceptions\InvalidRefereesException.cs" />
     <Compile Include="Exceptions\InvalidScoreException.cs" />
     <Compile Include="League.cs" />
@@ -146,10 +143,6 @@
     <Compile Include="Tournament.cs" />
     <Compile Include="VolleyballMatch.cs" />
     <Page Include="Windows\DetailsDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\GamePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

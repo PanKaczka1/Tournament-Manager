@@ -121,12 +121,21 @@ namespace Tournament_Manager
         private void dodgeballAddTeamBtn_Click(object sender, RoutedEventArgs e)
         {
             String trimmed = dodgeballTeamsTextBox.Text.Trim();
+
             if (trimmed != "" && tournament.ContestDodgeball.Teams.Count() < tournament.ContestDodgeball.TeamsAmount)
             {
                 Team t = new Team(dodgeballTeamsTextBox.Text);
-                foreach (Team o in tournament.ContestDodgeball.Teams)
-                    if (o.Name.Equals(t.Name))
-                        throw new NotImplementedException();
+                try
+                {
+                    foreach (Team o in tournament.ContestDodgeball.Teams)
+                        if (o.Name.Equals(t.Name))
+                            throw new ArgumentException("Nazwy drużyn nie mogą się powtarzać");
+                }
+                catch (ArgumentException ex)
+                {
+                    MessageBox.Show(ex.Message, "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
 
                 tournament.ContestDodgeball.addTeam(t);
                 dodgeballTeamsLeftLabel.Content = tournament.ContestDodgeball.TeamsAmount - tournament.ContestDodgeball.Teams.Count();
@@ -145,12 +154,20 @@ namespace Tournament_Manager
             String trimmed = dodgeballRefereesTextBox.Text.Trim();
             if (trimmed != "")
             {
-                Referee r = new Referee(dodgeballRefereesTextBox.Text);
-                foreach (Referee o in tournament.ContestDodgeball.Referees)
-                    if (o.Name.Equals(r.Name) && o.Surname.Equals(r.Surname))
-                        throw new NotImplementedException();
+                try
+                {
+                    Referee r = new Referee(dodgeballRefereesTextBox.Text);
+                    foreach (Referee o in tournament.ContestVolleyball.Referees)
+                        if (o.Name.Equals(r.Name) && o.Surname.Equals(r.Surname))
+                            throw new ArgumentException("W systemie już istnieje sędzia o podanych danych");
+                    tournament.ContestDodgeball.addReferee(r);
+                }
+                catch (ArgumentException ex)
+                {
+                    MessageBox.Show(ex.Message, "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
 
-                tournament.ContestDodgeball.addReferee(r);
                 dodgeballRefereesTextBox.Text = "";
             }
         }
@@ -182,9 +199,17 @@ namespace Tournament_Manager
             if (trimmed != "" && tournament.ContestRopeDragging.Teams.Count() < tournament.ContestRopeDragging.TeamsAmount)
             {
                 Team t = new Team(ropeDraggingTeamsTextBox.Text);
-                foreach (Team o in tournament.ContestRopeDragging.Teams)
-                    if (o.Name.Equals(t.Name))
-                        throw new NotImplementedException();
+                try
+                {
+                    foreach (Team o in tournament.ContestRopeDragging.Teams)
+                        if (o.Name.Equals(t.Name))
+                            throw new ArgumentException("Nazwy drużyn nie mogą się powtarzać");
+                }
+                catch (ArgumentException ex)
+                {
+                    MessageBox.Show(ex.Message, "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
 
                 tournament.ContestRopeDragging.addTeam(t);
                 ropeDraggingTeamsLeftLabel.Content = tournament.ContestRopeDragging.TeamsAmount - tournament.ContestRopeDragging.Teams.Count();
@@ -203,12 +228,20 @@ namespace Tournament_Manager
             String trimmed = ropeDraggingRefereesTextBox.Text.Trim();
             if (trimmed != "")
             {
-                Referee r = new Referee(ropeDraggingRefereesTextBox.Text);
-                foreach (Referee o in tournament.ContestRopeDragging.Referees)
-                    if (o.Name.Equals(r.Name) && o.Surname.Equals(r.Surname))
-                        throw new NotImplementedException();
+                try
+                {
+                    Referee r = new Referee(ropeDraggingRefereesTextBox.Text);
+                    foreach (Referee o in tournament.ContestRopeDragging.Referees)
+                        if (o.Name.Equals(r.Name) && o.Surname.Equals(r.Surname))
+                            throw new ArgumentException("W systemie już istnieje sędzia o podanych danych");
+                    tournament.ContestRopeDragging.addReferee(r);
+                }
+                catch (ArgumentException ex)
+                {
+                    MessageBox.Show(ex.Message, "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
 
-                tournament.ContestRopeDragging.addReferee(r);
                 ropeDraggingRefereesTextBox.Text = "";
             }
         }
