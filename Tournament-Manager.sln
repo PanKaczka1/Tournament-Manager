@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26430.6
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tournament-Manager", "Tournament-Manager\Tournament-Manager.csproj", "{82754B41-6A58-4974-AA31-85DC05367ECD}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{C6691BC7-1D8F-40F7-9B9C-C1E94E4CCF5B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,8 @@ Global
 		{82754B41-6A58-4974-AA31-85DC05367ECD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{82754B41-6A58-4974-AA31-85DC05367ECD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82754B41-6A58-4974-AA31-85DC05367ECD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6691BC7-1D8F-40F7-9B9C-C1E94E4CCF5B}.Debug|Any CPU.ActiveCfg = Debug
+		{C6691BC7-1D8F-40F7-9B9C-C1E94E4CCF5B}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

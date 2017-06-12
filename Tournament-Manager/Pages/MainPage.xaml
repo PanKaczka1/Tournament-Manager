@@ -34,7 +34,7 @@
                     <Button x:Name="ropedraggingRefereesBtn" Content="Sędziowie" Grid.Row="3" Click="ropedraggingRefereesBtn_Click"/>
                 </StackPanel>
             </TabItem>
-            <TabItem Header="Przeciąganie liny">
+            <TabItem Header="Dwa ognie">
                 <StackPanel VerticalAlignment="Center" Width="150">
                     <Button x:Name="dodgeballScheduleBtn" Content="Terminarz" Grid.Row="1" Click="dodgeballScheduleBtn_Click"/>
                     <Button x:Name="dodgeballTeamsBtn" Content="Drużyny" Grid.Row="2" Click="dodgeballTeamsBtn_Click"/>
